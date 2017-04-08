@@ -8,10 +8,18 @@
 # histories
 .history
 .bash_history
+.lesshst
 
-# vim temporary files
+# X11
+.xsession-errors
+.xsession-errors.old
+.Xauthority
+.ICEauthority
+
+# vim temporary and state files
 *~
 .*.sw?
+.viminfo
 
 # caches and logs and sessions and such
 .compiz/
