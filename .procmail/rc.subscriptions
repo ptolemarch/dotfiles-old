@@ -1,0 +1,52 @@
+# vim:ft=procmail
+:0
+* ^List-Id:.*albuquerque-pm
+IN-S-pm_abq/
+
+:0
+* ^List-Id:.*thousand-oaks-pm
+IN-S-pm_to/
+
+:0
+* ^List-Id:.*pgh-pm
+IN-S-pm_pgh/
+
+:0
+* ^List-Id:.*losangeles-pm
+IN-S-pm_la/
+
+:0
+* ^Sender:.*owner-ny@lists.pm.org
+IN-S-pm_ny/
+
+:0
+* ^List-Id:.*recdescent
+IN-S-recdescent/
+
+:0
+* ^List-Id:.*perl6-users
+IN-S-perl6_users/
+
+:0
+* ^List-Id:.*imager-devel
+IN-S-imager/
+
+:0
+* ^List-Id:.*perl-javascript
+IN-S-perl_javascript/
+
+:0
+* ^TO_SR-Neville@yahoogroups\.com
+IN-S-shadowrun/
+
+:0
+* ^TO_tlhIngan-Hol@kli\.org
+IN-S-tlhIngan/
+
+:0
+* ^List-Post:.*libc-help
+IN-S-libc-help/
+
+:0
+* ^List-Id:.*members\.tug\.org
+IN-S-tug/

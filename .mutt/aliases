@@ -1,0 +1,95 @@
+# vim:ft=muttrc
+alias engineer Josh Birnbaum <engineer@noorg.org>
+alias waltman Walt Mankowski <waltman@pobox.com>
+alias davidhand David Hand <davidhand@davidhand.com>
+alias gmail David Hand <davidhand@gmail.com>
+alias mesmith \"Michael E. Smith\" <mesmith@panix.com>
+alias shawn Shawn Murphy <shawn@byshawnmurphy.com>
+alias mom Theresa Weber <gododgerblue@writeme.com>
+alias casey Casey West <casey@geeknest.com>
+alias jeanne Jeanne Winning <jwinning@sjcsf.edu>
+alias melanie Melanie Henley Heyn <operasiren@gmail.com>
+alias liz Elizabeth Kuzmich <elizabeth_halpenny@hotmail.com>
+alias mse High Lord Flieghund <mse@ellars.com>
+alias smurphy Shawn Murphy <smurphy@microsoft.com>
+alias meredyth \"Meredyth F. Tuttle Didier\" <meredyth_didier@mac.com>
+alias jon Jonathan Didier <jonathan_didier@mac.com>
+alias guinevere Guinevere Liberty Nell <guinevere@gmail.com>
+alias cassidy Cassidy Cording <Solsticewind@aol.com>
+alias john John Wofford <john.wofford@gmail.com>
+alias marni Marni Wofford <marnelli.hamilton@gmail.com>
+alias onebee Chuck Weber <onebee@buckeye-express.com>
+alias holly Holly Courtney <hollycourtney03@yahoo.com>
+alias molly Molly Wright <mollygenevieve@gmail.com>
+alias allison Allison Randal <allison@wgz.org>
+alias dad Chuck Weber <chuck.weber@buckeye-express.com>
+alias usdoe US DOE <NoReply2@cpsemail.ed.gov>
+alias jarhead Pat & Tina Moriarty <jarhead@fullnet.com>
+alias eric Eric Ray <eray@sjcsf.edu>
+alias grandma Donna Avery <jayhawk8@rvi.net>
+alias henry Henry Holman <Hankholman@aol.com>
+alias aron Aron Wall <aron@wall.org>
+alias stim Hilary Stim <sullini@hotmail.com>
+alias gayatri Gayatri Parikh <gayatriparikh@yahoo.com>
+alias eray Eric Ray <eray@sjcsf.edu>
+alias legbrown Lynn Brown <legbrown@earthlink.net>
+alias dupree Erin Dupree <thepictureinreverse@gmail.com>
+alias mheyn Melanie Henley Heyn <mheyn@middlebury.edu>
+alias chessboy Robert Silverman <chessboy@mac.com>
+alias gayatri Gayatri Parikh <gayatriparikh@yahoo.com>
+alias nyssa Nyssa Travis <nyssatravis@gmail.com>
+alias annie Annie Keating <AnnieK25@comcast.net>
+alias keith Keith West <keithdouglaswest@mac.com>
+alias chernacell \"Cherna Patterson (cellphone)\" <7605860656@vmobl.com>
+alias cherna Cherna LoGiudice <joxerthemighty36@gmail.com>
+alias ellen Ellen \'Knowltonian\' Wilson <ekwilson@gmail.com>
+alias ekwilson Ellen Knowlton Wilson <ekwilson@gmail.com>
+alias ailie Ellen Knowlton Wilson <ekwilson@gmail.com>
+alias mr Mary Reid Bogue <maryreidbogue@yahoo.com>
+alias synabar Synabar <belleatrix81@hotmail.com>
+alias jessie Jessie Hatcher <joscelintollin@yahoo.com>
+alias franks Grant Franks <grantfranks@earthlink.net>
+alias ian Ian Armstrong <helixnine@yahoo.com.au>
+alias fpz Frank Zambeck <gargoyledorian@yahoo.com>
+alias shane Shane Weber <shanerweber@gmail.com>
+alias chad Chad Weber <chadmweber@gmail.com>
+alias kara Kara Weber <kaypeaone@aol.com>
+alias mf MF Fitzsimmons <bitterfizzy@gmail.com>
+alias ilona Ilona Gerbakher <ilona.gerbakher@sjcsf.edu>
+alias drew Drew Winget <scipioaffricanus@gmail.com>
+alias crab Abhijit Menon-Sen <ams@toroid.org>
+alias cquinn Chris Quinn <cquinn@sjcsf.edu>
+alias ht Sam Hitchcock Tilton <upfullvibes@hotmail.com>
+alias sparks Ben Sparks <benpsparks@yahoo.com>
+alias torgox \"Sean M. Burke\" <sburke@cpan.org>
+alias mikowski \"Michael S. Mikowski\" <mmikowski@valueclick.com>
+alias caroline Caroline Elster <carolinev.elster@hotmail.com>
+alias topm Thousand Oaks Perl Mongers <thousand-oaks-pm@pm.org>
+alias lapm Los Angeles Perl Mongers <losangeles-pm@pm.org>
+alias mbourdon Michael Bourdon <mbourdon@csi4jobs.com>
+alias randal Randal Hollensbe <rhollens@sjcsf.edu>
+alias max Max Harris <maxwellsharris@hotmail.com>
+alias crome "Jason A. Crome" <cromedome@gmail.com>
+alias deborah Deborah Williams <deborah.m.williams@csun.edu>
+alias deborah_mobile \"Deborah Williams (Mobile)\" <debba111482@mycingular.blackberry.net>
+alias ram Ram <bestwebdev@gmail.com>
+alias debba Deborah Williams <dramagal8184@sbcglobal.net>
+alias steve Steve Hobbs <stevohobbs@yahoo.com>
+alias denise Denise Hobbs <littlexpinch@yahoo.com>
+alias keely Keely Boisvert <PCAislinn@yahoo.com>
+alias zrusilla Liz Cortell <zrusilla@mac.com>
+alias jane Jane Berberian <berberianj@yahoo.com>
+alias dara Dara Peterson <petersondara@yahoo.com>
+alias crash David Hampton <david.hampton@gmail.com>
+alias burns Matt Burns <matthewburns@gmail.com>
+alias ivarsson "Anna-Carin Ivarsson" <anna-carin.ivarsson@pricerunner.com>
+alias avakian Alain Avakian <alain@rent.com>
+alias eavonka Eavonka <eared@yahoo.com>
+alias erin Erin Dupree <thepictureinreverse@gmail.com>
+alias chris Chris Hand <chrisrhand@gmail.com>
+alias proba Proba Puella <carlam1929@gmail.com>
+alias besproutful <sprout123@windstream.net>
+alias sarah \"Sarah M. Allen\" <midnightmuse@midnightmuse.net>
+alias nella \"Sarah M. Allen\" <nella_haras@hotmail.com>
+alias sara Sara Marie Martinez XIII <saramarie_martinez@yahoo.com>
+alias kungfunicorn Sarah <kungfunicorn@gmail.com>

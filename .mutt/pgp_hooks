@@ -1,0 +1,3 @@
+# vim:ft=muttrc
+send-hook eray@sjcsf\.edu 'set crypt_autoencrypt'
+send-hook mesmith@panix\.com 'set pgp_autoinline; set pgp_mime_auto="no"'

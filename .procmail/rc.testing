@@ -1,0 +1,4 @@
+# vim:ft=procmail
+:0
+* ^Subject:.*test
+IN-testing/

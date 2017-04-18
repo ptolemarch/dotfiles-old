@@ -1,0 +1,9 @@
+# vim:ft=muttrc
+subscribe abq-pm@swcp\.com
+subscribe (abq|albuquerque|pgh|losangeles|ny)(-pm)?@((mail|lists)\.)?pm\.org
+subscribe (recdescent|perl6-users|perl-javascript)@perl\.org
+subscribe imager-devel@molar\.is
+subscribe (perl-qotw(-discuss)?|mjd-advocacy)@plover\.com
+subscribe SR-Neville@yahoogroups\.com
+subscribe tlhIngan-Hol@kli\.org
+subscribe sjcsar@lyris\.nmt\.edu

@@ -1,0 +1,12 @@
+# vim:ft=procmail
+
+# BCCing myself from my iPhone
+:0
+* ^X-Mailer:.*iPhone Mail
+* ^From:.*davidhand
+%SENT/
+
+# Sent from Google Mail
+:0
+* ^From:.*davidhand@gmail\.com
+%SENT/

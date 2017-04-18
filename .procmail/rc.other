@@ -1,0 +1,29 @@
+# vim:ft=procmail
+
+:0
+* ^X-Original-To: cpan@davidhand\.com
+IN-O-cpan/
+
+:0
+* ^X-Original-To: cogent@cpan\.org
+IN-O-cpan/
+
+:0
+* ^X-Original-To: webmaster@davidhand\.com
+IN-O-webmaster/
+
+:0
+* ^X-Original-To: postmaster@davidhand\.com
+IN-O-postmaster/
+
+:0
+* ^X-Original-To: sigh@davidhand\.com
+IN-O-sigh/
+
+:0
+* ^X-Original-To: teekanne@davidhand\.com
+IN-O-wow/
+
+:0
+* ^From:.*\<root@yomkippur\.dreamhostps\.com
+IN-O-cron/

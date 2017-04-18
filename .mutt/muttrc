@@ -1,0 +1,162 @@
+set meta_key
+
+set mailcap_path="~/.mutt/mailcap"
+set alias_file="~/.mutt/aliases"
+source "~/.mutt/aliases"
+source "~/.mutt/subscriptions"
+source "~/.mutt/pgp_hooks"
+set reverse_alias
+
+mailboxes _INCOMING
+mailboxes IN-O-cpan IN-O-sigh IN-O-webmaster
+mailboxes IN-S-imager IN-S-perl6_users IN-S-perl_javascript IN-S-recdescent
+mailboxes IN-S-pm_abq IN-S-pm_la IN-S-pm_ny IN-S-pm_pgh
+mailboxes IN-S-qotw IN-S-advocacy IN-S-sjcsar
+set mbox_type=Maildir
+set mbox="+%READ"
+save-hook "~A" "+%READ"
+set record="+%SENT"
+set postponed="+%POSTPONED"
+set fcc_clear  # dangerous, but otherwise I can't read the damned things!
+folder-hook '^%' 'set strict_threads'
+folder-hook !'^%' 'unset strict_threads'
+
+unset help
+set status_on_top
+set mail_check=1
+set timeout=10
+set beep_new
+unset print_decode
+set sort=threads
+set sort_aux=date-received
+auto_view text/html
+set pager_stop
+set ispell="aspell"
+set print_command="a2ps -s 2"
+unset wait_key
+set index_format="%4C %Z %{%b %d} %-15.15F (%?l?%4l&%4c?) %s"
+unset narrow_tree
+unset ascii_chars
+set rfc2047_parameters
+
+hdr_order from subject date from: to X-Original-To cc X-Spam-Status
+ignore *
+unignore subject date from to X-Original-To cc X-Spam-Status
+set tilde
+alternates "^(david(hand)?|me|you|cogent|cpan)@davidhand\\.com$"
+alternates "^d(avid\\.)?hand@(mail\\.)?(sjc(sf|a)|stjohnscollege)\\.edu$"
+alternates "^cogent@cpan.org$"
+
+set from="davidhand@davidhand.com"
+set realname="David 'cogent' Hand"
+set encode_from
+set use_envelope_from
+my_hdr X-GPG-Fingerprint: 54A1 F4FF 0FFC 0D87 5319  AD59 8432 EDE4 F970 3EE4
+set edit_headers
+set fast_reply
+set include=yes
+set attribution="On %d, %f wrote:"
+set date_format="%Y %m/%d %H:%M"
+#set date_format="%Y %B %e %A %l:%M%p (%Z) [%Y-%m%d-%H%M]"
+set mime_forward
+unset use_domain
+
+unset bounce
+unset bounce_delivered
+
+#unset confirmappend  # we'll leave this set for now
+
+# == GPG/PGP =================================================================
+set crypt_autopgp
+set crypt_autosign
+set crypt_replyencrypt
+set crypt_verify_sig
+
+set pgp_sign_as="0xF9703EE4"
+set pgp_retainable_sigs
+set pgp_replyinline
+set pgp_timeout=900  # number of seconds in 15 minutes
+set pgp_auto_decode
+
+set pgp_decode_command="gpg \
+        %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - \
+        %f"
+set pgp_verify_command="gpg \
+        --no-verbose --quiet  --batch  --output - \
+        --verify %s %f"
+set pgp_decrypt_command="gpg \
+        --passphrase-fd 0 --no-verbose --quiet --batch --output - \
+        %f"
+set pgp_sign_command="gpg \
+        --no-verbose --batch --quiet --output - \
+        --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg \
+        --no-verbose --batch --quiet --output - \
+        --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="pgpewrap gpg \
+        --batch --quiet --no-verbose --output - \
+        --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg \
+        --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - \
+        --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_import_command="gpg \
+        --no-verbose --import -v %f"
+set pgp_export_command="gpg \
+        --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg \
+        --verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg \
+        --no-verbose --batch --quiet --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg \
+        --no-verbose --batch --quiet --with-colons --list-secret-keys %r" 
+#set pgp_good_sign="`gettext -d gnupg -s 'Good signature from "' | tr -d '"'`"
+set pgp_good_sign="Good signature from"
+
+
+# == Keybindings =============================================================
+bind    index   \ef forget-passphrase
+bind    pager   \ef forget-passphrase
+bind    compose \ef forget-passphrase
+bind    index   \cf noop
+bind    pager   \cf noop
+bind    compose \cf noop
+bind	pager	=	top
+bind	pager	*	bottom
+macro   index   \cf !fetchmail\n
+macro   pager   \cf !fetchmail\n
+macro   compose \cf !fetchmail\n
+macro   index   \cb |urlview\n
+macro   pager   \cb |urlview\n
+
+# == Colors ==================================================================
+# available colors:
+#   white  black  green  magenta  blue  cyan  yellow  red  default
+color normal default default
+color status brightwhite blue
+color message brightred default
+color error brightred default
+
+color tree magenta default
+color indicator brightwhite red
+color index brightwhite default ~N
+color index white default ~O
+color index magenta default ~k
+color index magenta default ~g
+color index magenta default ~V
+color index brightmagenta default ~G
+color index black default ~D
+
+color bold brightwhite default
+color underline brightwhite default
+
+#   white  black  green  magenta  blue  cyan  yellow  red  default
+color search white green
+color markers red default
+color header white black ^(Subject|Date|From):
+color hdrdefault yellow black
+color body cyan default [[:alnum:]._%-]+@[[:alnum:].-]+(\\.[[:alnum:].-]+)*
+color body blue default ((https?|ftp|gopher)://|(mailto|file|news):)[^][)(}{><[:space:]\`'":]+
+color quoted magenta default
+color signature blue default
+color attachment brightgreen default
+color tilde blue default

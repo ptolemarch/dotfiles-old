@@ -1,0 +1,4 @@
+text/html; lynx -dump -force_html -assume_local_charset=%{charset} %s; copiousoutput; nametemplate=%s.html
+application/pgp-keys; gpg --import %s
+image/*; cat %s | open -f -a 'Preview'
+application/pdf; cat %s | open -f -a 'Preview'
