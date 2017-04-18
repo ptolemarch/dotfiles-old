@@ -105,8 +105,14 @@ export EMAIL REPLYTO PGPPATH
 
 # == configuration for Bash itself ===========================================
 
+shopt -u dotglob  # don't include dotfiles in pathname expansion
+shopt -s globstar # ** matches through subdirectories
 shopt -s extglob  # turn on extended pattern matching 
 am_case_sensitive || shopt -s nocaseglob # on a case-insensitive system
+
+# filename completion ignore list
+FIGNORE='.*.sw?:*~:#*#:.o:.class:.:.c.html:.java.html:.html.html:.DB_Store:._:CVS:.svn'
+GLOBIGNORE="$FIGNORE"
 
 # \e[36m : cyan (Theophany)
 # TODO: for dhand, 33m (orange)
@@ -115,16 +121,10 @@ PS2='\[\e[36m\]\D{%k;%M,%S} >\[\e[m\] '
 
 #PROMPT_COMMAND=__ptolemarch_prompt_command
 
-HISTSIZE=5000
+HISTSIZE=10000  # why the hell not
 HISTIGNORE='&:##*:*(k):cd:exit:ls:ll:la:lal:uptime:from:frm:fm:fm;tfm:tfm:fmq:fmq;efm:efm:mutt:finger:users:clear:date:sb:dh.c'
 HISTFILE=~/.history
 shopt -s histappend  # append history; don't overwrite
-
-# filename completion ignore list
-FIGNORE='.*.sw?:*~:#*#:.o:.class:.:.c.html:.java.html:.html.html:.DB_Store:._:CVS:.svn'
-GLOBIGNORE="$FIGNORE"
-shopt -u dotglob  # don't include dotfiles in pathname expansion
-shopt -s globstar
 
 # ^D doesn't log you out (unless you do it 50 times in a row)
 IGNOREEOF=50
