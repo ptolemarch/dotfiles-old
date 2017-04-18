@@ -1,117 +1,224 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# ~/.bashrc: executed by bash(1) for interactve, non-login shells.
+#   (also sourced at the beginning of my .profile)
+
+# BASH_ENV is used to initialize non-interactive shells
+BASH_ENV=~/.bashenv
 
 # If not running interactively, don't do anything
+# This is less ridiculous than it seemed to me at first:
+#   - this file is sourced by ~/.profile
+#   - ~/.profile is executed when "bash is invoked as an interactive login
+#     shell, or as a non-interactive shell with the --login option
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# I should remember to do various useful things with stty(1)
+# AND NOW I HAVE
+stty \
+    stop undef \
+    start undef
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+# I want to run this on work machines,
+#   BUT NOT HERE AT HOME:
+#ssh-add -L | perl -anE '$F[2] =~ s{^.*/.ssh/}{$ENV{HOME}/.ssh/}; $FH=">$F[2].pub"; open FH or die; $,=" "; say FH @F; close FH or die'
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# functions I might use here
+# see end of .bashrc for .aliases
+if [[ -f ~/.functions ]]; then
+    source ~/.functions
+fi
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+# == paths ===================================================================
+export PATH="\
+$HOME/bin\
+:$HOME/bin/work\
+:/opt/kubernetes/platforms/linux/amd64\
+:/opt/android-sdk-update-manager/tools\
+:/opt/android-sdk-update-manager/platform-tools\
+:/usr/local/bin\
+:/usr/local/sbin\
+:/usr/games/bin\
+:/opt/X11/bin\
+:/usr/X11/bin\
+:/usr/bin\
+:/usr/sbin\
+:/bin\
+:/sbin\
+"
+#:$HOME/.rakudobrew/bin\
+#:$HOME/.../bin\
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+# seems to do more harm than good on OSX
+#export MANPATH="\
+#$HOME/share/man\
+#:/usr/local/share/man\
+#:/usr/games/man\
+#:/opt/X11/share/man\
+#:/usr/X11/man\
+#:/usr/share/man\
+#"
+
+export INFOPATH="\
+$HOME/share/info\
+:/usr/local/share/info\
+:/usr/games/info\
+:/usr/X11/info\
+:/usr/share/info\
+"
+
+export LIBRARY_PATH="\
+$HOME/lib\
+:/usr/local/lib\
+:/usr/games/lib\
+"
+
+export INCLUDE="\
+$HOME/include\
+:/usr/local/include\
+:/usr/games/include\
+"
+export CPATH="$INCLUDE"
+
+# == mail ====================================================================
+MAILCHECK=10
+newmail="\e[97;41mNEW MAIL\e[m"
+MAILPATH="\
+~/Mail/_INCOMING?$newmail (main):\
+~/Mail/IN-S-pm_to?$newmail (ThousandOaks.pm):\
+~/Mail/IN-S-pm_la?$newmail (LosAngeles.pm):\
+~/Mail/IN-O-cpan?$newmail (CPAN):\
+~/Mail/IN-O-sigh?$newmail (DreamHost alternate):\
+~/Mail/IN-O-webmaster?$newmail (webmaster):\
+~/Mail/IN-O-wow?$newmail (World of Warcraft)\
+"
+
+MAIL=~/Mail/_INCOMING
+MAILREADER='/usr/local/bin/mutt'
+export MAIL MAILREADER
+
+EMAIL='davidhand@davidhand.com'
+REPLYTO='davidhand@davidhand.com'
+PGPPATH="$HOME/.gnupg"
+export EMAIL REPLYTO PGPPATH
+
+# == configuration for Bash itself ===========================================
+
+shopt -s extglob  # turn on extended pattern matching 
+am_case_sensitive || shopt -s nocaseglob # on a case-insensitive system
+
+# \e[36m : cyan (Theophany)
+# TODO: for dhand, 33m (orange)
+PS1='\[\e[36m\]\D{%k;%M,%S} \W \$\[\e[m\] '
+PS2='\[\e[36m\]\D{%k;%M,%S} >\[\e[m\] '
+
+#PROMPT_COMMAND=__ptolemarch_prompt_command
+
+HISTSIZE=5000
+HISTIGNORE='&:##*:*(k):cd:exit:ls:ll:la:lal:uptime:from:frm:fm:fm;tfm:tfm:fmq:fmq;efm:efm:mutt:finger:users:clear:date:sb:dh.c'
+HISTFILE=~/.history
+shopt -s histappend  # append history; don't overwrite
+
+# filename completion ignore list
+FIGNORE='.*.sw?:*~:#*#:.o:.class:.:.c.html:.java.html:.html.html:.DB_Store:._:CVS:.svn'
+GLOBIGNORE="$FIGNORE"
+shopt -u dotglob  # don't include dotfiles in pathname expansion
+shopt -s globstar
+
+# ^D doesn't log you out (unless you do it 50 times in a row)
+IGNOREEOF=50
+
+# == color ===================================================================
+export CLICOLOR='yessir'  # ls and such
+
+# == general options =========================================================
+## Locale stuff that perl wants set
+#LANG='en_US.UTF-8'
+#export LANG
+
+EDITOR='vim'
+VISUAL="$EDITOR"
+PAGER='less'
+LESS='-R'
+HACKPAGER='less'  # for nethack
+#MANPAGER='manpager'
+export EDITOR VISUAL PAGER LESS HACKPAGER #MANPAGER
+
+GTK_IM_MODULE='xim' 
+export GTK_IM_MODULE
+
+HUGSFLAGS='-E"vim +%d %s"'
+export HUGSFLAGS
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+# == development =============================================================
+
+# from homebrew: The OpenSSL provided by OS X is too old for some software.
+#
+# Generally there are no consequences of this for you. If you build your
+# own software and it requires this formula, you'll need to add to your
+# build variables:
+# LDFLAGS:  -L/usr/local/opt/openssl/lib
+# CPPFLAGS: -I/usr/local/opt/openssl/include
+
+# == Homebrew ================================================================
+if type -p brew > /dev/null 2>&1; then
+    homebrew_present="yes";
+    homebrew_prefix="$(brew --prefix)"
+
+    # allows hitting the GitHub API way harder, 'cuz signed-in
+    export HOMEBREW_GITHUB_API_TOKEN=91d3c97f56952a4e4dd7de62b60c19d5196201c5
+
+    # otherwise it's /opt/homebrew-cask/Caskroom ?!?
+    export HOMEBREW_CASK_OPTS="--caskroom=$homebrew_prefix/Caskroom"
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
+# bash completion
+if [ -v homebrew_prefix ]; then
+    brew_bash_cmpl="$homebrew_prefix/share/bash-completion/bash_completion"
+    if [ -f "$brew_bash_cmpl" ]; then
+        source "$brew_bash_cmpl"
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+# == Perlbrew & MiniCPAN =====================================================
+#PERLBREW_CONFIGURE_FLAGS='-Duse64bitall -Dusethreads -Duseshrplib -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib -des'
+#PERLBREW_CONFIGURE_FLAGS='-Duse64bitall -Duseshrplib -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib -des'
+_pb_mc_parent="$HOME/.perl5"
+PERLBREW_CPAN_MIRROR="http://ftp.wayne.edu/CPAN/"
+PERLBREW_ROOT="$_pb_mc_parent/perlbrew"
+PERLBREW_HOME="$PERLBREW_ROOT"
+[[ -s "$PERLBREW_ROOT/etc/bashrc" ]] && source "$PERLBREW_ROOT/etc/bashrc"
+export PERLBREW_CONFIGURE_FLAGS PERLBREW_ROOT PERLBREW_HOME PERLBREW_CPAN_MIRROR
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+minicpan_root="$_pb_mc_parent/minicpan"
+cpanm_cpan_mirror="file://$minicpan_root/"
+export PERL_CPANM_OPT="--mirror $cpanm_cpan_mirror --mirror-only"
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+# why is there no env variable for this?
+alias 'cpan-outdated'="cpan-outdated --mirror $cpanm_cpan_mirror"
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+# == Rakudobrew ==============================================================
+# for now, Gentoo seems to be tracking Rakudo quite nicely
+# but maybe I'll play with rakudobrew some more
+if [[ -e ~/.rakudobrew/bin/rakudobrew ]]; then
+    eval "$(~/.rakudobrew/bin/rakudobrew init -)"
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# == git-hub (by Ingy döt Net) ===============================================
+#[[ -s ~/Code/_/git-hub/init ]] && source ~/Code/_/git-hub/init
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# == rlwrap (readline command wrapper) =======================================
+export RLWRAP_HOME="$HOME/.rlwrap"
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# == Android SDK Update Manager ==============================================
+export ANDROID_SWT='/usr/share/swt-3.7/lib'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# == new commands ============================================================
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+if [[ -f ~/.aliases ]]; then
+    source ~/.aliases
 fi
