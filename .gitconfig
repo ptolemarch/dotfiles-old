@@ -14,5 +14,6 @@
 [push]
 	default = current
 [alias]
+	ustatus = status --untracked-files=normal
 	unstage = reset --
 	release = ! git tag release-`date +%Y%m%d%H%M` && git push --tags
