@@ -130,7 +130,16 @@ shopt -s histappend  # append history; don't overwrite
 IGNOREEOF=50
 
 # == color ===================================================================
+# I think CLICOLOR is/was used in OS X?  Otherwise not sure why I have this.
 export CLICOLOR='yessir'  # ls and such
+
+if type dircolors > /dev/null 2>&1 ; then
+        [[ -r ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 
 # == general options =========================================================
 ## Locale stuff that perl wants set
@@ -197,9 +206,8 @@ export PERLBREW_CONFIGURE_FLAGS PERLBREW_ROOT PERLBREW_HOME PERLBREW_CPAN_MIRROR
 minicpan_root="$_pb_mc_parent/minicpan"
 cpanm_cpan_mirror="file://$minicpan_root/"
 export PERL_CPANM_OPT="--mirror $cpanm_cpan_mirror --mirror-only"
-
-# why is there no env variable for this?
-alias 'cpan-outdated'="cpan-outdated --mirror $cpanm_cpan_mirror"
+# also there's an alias (in ~/.aliases) so cpan-outdated respects the
+#   $cpanm_cpan_mirror
 
 # == Rakudobrew ==============================================================
 # for now, Gentoo seems to be tracking Rakudo quite nicely
