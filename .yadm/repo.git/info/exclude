@@ -5,10 +5,14 @@
 # *.[oa]
 # *~
 
-# histories
-.history
-.bash_history
-.lesshst
+/*
+!/.*
+
+# my liferaft of configs
+ptolemarch/
+
+# might prefer some sort of subtler handling of .yadm/
+.yadm/repo.git/objects
 
 # X11
 .xsession-errors
@@ -21,6 +25,12 @@
 .*.sw?
 .viminfo
 
+# histories
+.history
+.bash_history
+.lesshst
+.rlwrap/
+
 # caches and logs and sessions and such
 .compiz/
 .config/
@@ -29,8 +39,6 @@
 .lastpass/
 .oracle_jre_usage/
 .local/
-.yadm/repo.git/objects
-ptolemarch/
 .mozilla/
 .cache/
 .nv/
