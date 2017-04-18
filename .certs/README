@@ -1,0 +1,13 @@
+This comes from
+	< http://wiki.fastmail.fm/index.php?title=ConfiguringFetchmail >
+and is hopefully not totally wrong.
+		-- cogent
+
+#! /bin/bash
+HOSTNAME='pop.gmail.com:995' # or whatever
+openssl s_client -CApath $HOME/.certs -connect "$HOSTNAME" -showcerts \
+	< /dev/null \
+	| perl -lne 'print if /BEGIN CERT/ .. /END CERT/; last if /END CERT/' \
+	> ~/.certs/"$HOSTNAME".pem
+openssl x509 -fingerprint -md5 -noout -in ~/.certs/"$HOSTNAME".pem
+# and then put that sslfingerprint into your .fetchmailrc
