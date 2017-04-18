@@ -225,8 +225,17 @@ export RLWRAP_HOME="$HOME/.rlwrap"
 # == Android SDK Update Manager ==============================================
 export ANDROID_SWT='/usr/share/swt-3.7/lib'
 
-# == new commands ============================================================
-
+# == aliases =================================================================
 if [[ -f ~/.aliases ]]; then
     source ~/.aliases
+fi
+
+# == command completion ======================================================
+# (straight from Ubuntu's .bashrc)
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi
