@@ -1,0 +1,17 @@
+local: ~/.perl5/minicpan
+
+# Charlotte
+#remote: http://httpupdate40.cpanel.net/CPAN
+# Chicago
+#remote: http://httpupdate15.cpanel.net/CPAN
+# Lansing
+#remote: http://httpupdate18.cpanel.net/CPAN
+
+# Wayne State
+remote: http://ftp.wayne.edu/CPAN/
+#remote: ftp://ftp.wayne.edu/CPAN/
+
+exact_mirror: 0
+skip_perl: 0
+perl: 1
+log_level: debug
