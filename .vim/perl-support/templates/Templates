@@ -1,0 +1,16 @@
+§ =============================================================
+§  User Macros
+§ =============================================================
+
+SetMacro( 'AUTHOR',      'David Hand' )
+SetMacro( 'AUTHORREF',   'Ptolemarch' )
+SetMacro( 'COMPANY',     '' )
+SetMacro( 'COPYRIGHT',   'Copyright (c) |YEAR|, |AUTHOR|' )
+SetMacro( 'EMAIL',       'davidhand@davidhand.com' )
+SetMacro( 'LICENSE',     'GNU General Public License' )
+SetMacro( 'ORGANIZATION','' )
+
+§ =============================================================
+§  File Includes and Shortcuts
+§ =============================================================
+
