@@ -33,7 +33,6 @@ ptolemarch/
 
 # caches and logs and sessions and such
 .compiz/
-.config/
 .gconf/
 .java/
 .lastpass/
