@@ -11,8 +11,9 @@
 # my liferaft of configs
 ptolemarch/
 
-# might prefer some sort of subtler handling of .yadm/
-.yadm/repo.git/objects
+# these are handled through YADM's encyryption
+.ssh/
+.gnupg/
 
 # X11
 .xsession-errors

@@ -1,0 +1,3 @@
+[submodule ".yadm-private"]
+	path = .yadm-private
+	url = git@github.com:ptolemarch/dotfiles-private.git
