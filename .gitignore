@@ -25,6 +25,7 @@ ptolemarch/
 *~
 .*.sw?
 .viminfo
+.vim/.netrwhist
 
 # histories
 .history
