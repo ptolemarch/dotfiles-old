@@ -1,3 +1,6 @@
 [submodule ".yadm-private"]
 	path = .yadm-private
 	url = git@github.com:ptolemarch/dotfiles-private.git
+[submodule ".vim/bundle/mojo.vim"]
+	path = .vim/bundle/mojo.vim
+	url = git@github.com:yko/mojo.vim.git
