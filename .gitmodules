@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/mojo.vim"]
 	path = .vim/bundle/mojo.vim
 	url = git@github.com:yko/mojo.vim.git
+[submodule ".rakudobrew"]
+	path = .rakudobrew
+	url = git@github.com:tadzik/rakudobrew.git

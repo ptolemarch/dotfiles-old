@@ -33,6 +33,7 @@ fi
 # == paths ===================================================================
 export PATH="\
 $HOME/bin\
+:$HOME/.rakudobrew/bin\
 :$HOME/bin/work\
 :/opt/kubernetes/platforms/linux/amd64\
 :/opt/android-sdk-update-manager/tools\
@@ -47,7 +48,6 @@ $HOME/bin\
 :/bin\
 :/sbin\
 "
-#:$HOME/.rakudobrew/bin\
 #:$HOME/.../bin\
 
 # seems to do more harm than good on OSX
