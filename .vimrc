@@ -25,6 +25,7 @@
 "   https://github.com/tpope/vim-pathogen
 "   http://www.vim.org/scripts/script.php?script_id=2332
 "----------------------------------------------------------------------------
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 "============================================================================
