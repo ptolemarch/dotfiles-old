@@ -11,6 +11,7 @@ alias la="ls $ls_opts -A"
 alias ll="ls $ls_opts -l"
 alias lal="ls $ls_opts -Al"
 alias l.="ls $ls_opts -d .*"
+alias lltr="ls $ls_opts -ltr"
 
 grep_opts='--color=auto'
 alias grep="grep $grep_opts"
