@@ -40,6 +40,7 @@ $HOME/bin\
 :/opt/android-sdk-update-manager/platform-tools\
 :/usr/local/bin\
 :/usr/local/sbin\
+:/usr/games/\
 :/usr/games/bin\
 :/opt/X11/bin\
 :/usr/X11/bin\
