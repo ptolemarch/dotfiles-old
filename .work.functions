@@ -1,0 +1,14 @@
+#! bash
+
+if [[ -f ~/.functions && -z __PTOLEMARCH_FUNCTIONS_LOADED__ ]]; then
+    source ~/.functions
+fi
+
+mm_vpn()
+{
+    sudo \
+        /opt/forticlientsslvpn/64bit/forticlientsslvpn_cli \
+        --server remote.prod.mediamath.com:443 \
+        --vpnuser dhand
+}
+

@@ -29,12 +29,16 @@ stty \
 if [[ -f ~/.functions ]]; then
     source ~/.functions
 fi
+if [[ -f ~/.work.functions ]]; then
+    source ~/.work.functions
+fi
 
 # == paths ===================================================================
 export PATH="\
 $HOME/bin\
 :$HOME/.rakudobrew/bin\
 :$HOME/bin/work\
+:/opt/sqldeveloper\
 :/opt/kubernetes/platforms/linux/amd64\
 :/opt/android-sdk-update-manager/tools\
 :/opt/android-sdk-update-manager/platform-tools\

@@ -1,5 +1,7 @@
 #! bash
 
+export __PTOLEMARCH_FUNCTIONS_LOADED__=YESSIR
+
 # ============================================================================
 # Helpers
 # ----------------------------------------------------------------------------
@@ -256,6 +258,11 @@ emu()
 
     sudo etc-update \
         || return 45
+}
+
+cxl()
+{
+    echo $COLUMNS x $LINES
 }
 
 # had to go back to vpnc
