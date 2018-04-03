@@ -1,9 +1,5 @@
 local: ~/.perl5/minicpan
 
-# Charlotte
-#remote: http://httpupdate40.cpanel.net/CPAN
-# Chicago
-#remote: http://httpupdate15.cpanel.net/CPAN
 # Lansing
 #remote: http://httpupdate18.cpanel.net/CPAN
 
