@@ -1,7 +1,7 @@
 local: ~/.perl5/minicpan
 
 # Lansing
-#remote: http://httpupdate18.cpanel.net/CPAN
+remote: http://httpupdate118.cpanel.net/CPAN/
 
 # Wayne State
 remote: http://ftp.wayne.edu/CPAN/
