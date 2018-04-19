@@ -289,4 +289,16 @@ cql()
     docker run -it cassandra cqlsh --cqlversion "${version_for[$host]}" -k "$keyspace" "$host"
 }
 
+date()
+{
+    local tz="$1"
+
+    if [[ "$tz" == "india" ]]; then
+        shift # remove bogus "india" arg
+        TZ='Asia/Calcutta' command date "$@"
+    else
+        command date "$@"
+    fi
+}
+
 # vim:ft=sh
