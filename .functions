@@ -260,7 +260,7 @@ emu()
         || return 45
 }
 
-cxl()
+CxL()
 {
     echo $COLUMNS x $LINES
 }
