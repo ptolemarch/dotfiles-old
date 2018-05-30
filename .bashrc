@@ -2,7 +2,7 @@
 #   (also sourced at the beginning of my .profile)
 
 # BASH_ENV is used to initialize non-interactive shells
-BASH_ENV=~/.bashenv
+BASH_ENV=~/.bash/env
 
 # If not running interactively, don't do anything
 # This is less ridiculous than it seemed to me at first:
@@ -27,13 +27,13 @@ stty \
 # == functions ===============================================================
 # functions I might use here
 # see end of .bashrc for .aliases
-if [[ -f ~/.functions ]]; then
-    source ~/.functions
+if [[ -f ~/.bash/functions ]]; then
+    source ~/.bash/functions
 fi
 # functions for work
 # (see also EXPORTS FOR WORK, below)
-if [[ -f ~/.work.functions ]]; then
-    source ~/.work.functions
+if [[ -f ~/.bash/work.functions ]]; then
+    source ~/.bash/work.functions
 fi
 
 # == paths ===================================================================
@@ -131,7 +131,7 @@ PS2='\[\e[36m\]\D{%k;%M,%S} >\[\e[m\] '
 
 HISTSIZE=10000  # why the hell not
 HISTIGNORE='&:##*:*(k):cd:exit:ls:ll:la:lal:uptime:from:frm:fm:fm;tfm:tfm:fmq:fmq;efm:efm:mutt:finger:users:clear:date:sb:dh.c'
-HISTFILE=~/.history
+HISTFILE=~/.bash/history
 shopt -s histappend  # append history; don't overwrite
 
 # ^D doesn't log you out (unless you do it 50 times in a row)
@@ -142,7 +142,7 @@ IGNOREEOF=50
 export CLICOLOR='yessir'  # ls and such
 
 if type dircolors > /dev/null 2>&1 ; then
-        [[ -r ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        [[ -r ~/.bash/dircolors ]] && eval "$(dircolors -b ~/.bash/dircolors)" || eval "$(dircolors -b)"
 fi
 
 # colored GCC warnings and errors
@@ -214,7 +214,7 @@ export PERLBREW_CONFIGURE_FLAGS PERLBREW_ROOT PERLBREW_HOME PERLBREW_CPAN_MIRROR
 minicpan_root="$_pb_mc_parent/minicpan"
 cpanm_cpan_mirror="file://$minicpan_root/"
 export PERL_CPANM_OPT="--mirror $cpanm_cpan_mirror --mirror-only"
-# also there's an alias (in ~/.aliases) so cpan-outdated respects the
+# also there's an alias (in ~/.bash/aliases) so cpan-outdated respects the
 #   $cpanm_cpan_mirror
 
 # == Rakudobrew ==============================================================
@@ -235,13 +235,13 @@ export ANDROID_SWT='/usr/share/swt-3.7/lib'
 
 # == EXPORTS FOR WORK ========================================================
 # (see also functions for work, above)
-if [[ -f ~/.exports.work ]]; then
-    source ~/.exports.work
+if [[ -f ~/.bash/exports.work ]]; then
+    source ~/.bash/exports.work
 fi
 
 # == aliases =================================================================
-if [[ -f ~/.aliases ]]; then
-    source ~/.aliases
+if [[ -f ~/.bash/aliases ]]; then
+    source ~/.bash/aliases
 fi
 
 # == command completion ======================================================

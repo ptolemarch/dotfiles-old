@@ -30,6 +30,7 @@ ptolemarch/
 # histories
 .history
 .bash_history
+.bash/history
 .lesshst
 .rlwrap/
 
