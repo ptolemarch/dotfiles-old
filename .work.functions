@@ -12,3 +12,7 @@ mm_vpn()
         --vpnuser dhand
 }
 
+stop_picard()
+{
+    docker stop $(docker ps | perl -anE '/picard/ && say pop @F')
+}
