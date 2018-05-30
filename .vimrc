@@ -226,7 +226,10 @@ map \ :call ToggleCogentStatusLineArglistPos()<CR>
 "   (indenting, formatting, comments, compiling, printing(?),
 "   spell-checking, autocompletion) 
 "----------------------------------------------------------------------------
-" these have been moved to ~/.vim/ftplugin/*.vim
+" many of these have been moved to ~/.vim/ftplugin/*.vim
+
+" vim-perl
+let perl_sub_signatures = 1
 
 "-- Code --------------------------------------------------------------------
 let perl_include_pod=1  " perl highlighter should recognize POD
