@@ -24,11 +24,14 @@ stty \
 #   BUT NOT HERE AT HOME:
 #ssh-add -L | perl -anE '$F[2] =~ s{^.*/.ssh/}{$ENV{HOME}/.ssh/}; $FH=">$F[2].pub"; open FH or die; $,=" "; say FH @F; close FH or die'
 
+# == functions ===============================================================
 # functions I might use here
 # see end of .bashrc for .aliases
 if [[ -f ~/.functions ]]; then
     source ~/.functions
 fi
+# functions for work
+# (see also EXPORTS FOR WORK, below)
 if [[ -f ~/.work.functions ]]; then
     source ~/.work.functions
 fi
@@ -229,6 +232,12 @@ export RLWRAP_HOME="$HOME/.rlwrap"
 
 # == Android SDK Update Manager ==============================================
 export ANDROID_SWT='/usr/share/swt-3.7/lib'
+
+# == EXPORTS FOR WORK ========================================================
+# (see also functions for work, above)
+if [[ -f ~/.exports.work ]]; then
+    source ~/.exports.work
+fi
 
 # == aliases =================================================================
 if [[ -f ~/.aliases ]]; then
