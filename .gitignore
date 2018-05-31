@@ -14,6 +14,7 @@ ptolemarch/
 # these are handled through YADM's encyryption
 .ssh/
 .gnupg/
+.pgpass
 
 # X11
 .xsession-errors
