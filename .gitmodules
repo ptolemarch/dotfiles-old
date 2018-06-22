@@ -16,3 +16,9 @@
 [submodule ".vim/bundle/vim-perl6"]
 	path = .vim/bundle/vim-perl6
 	url = git@github.com:vim-perl/vim-perl6.git
+[submodule ".vim/vim-go"]
+	path = .vim/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "/home/ptolemarch/.vim/pack/plugins/start/vim-go"]
+	path = /home/ptolemarch/.vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go.git
