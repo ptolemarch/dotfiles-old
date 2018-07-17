@@ -39,8 +39,10 @@ fi
 # == paths ===================================================================
 export PATH="\
 $HOME/bin\
-:$HOME/.rakudobrew/bin\
 :$HOME/bin/work\
+:$HOME/.rakudobrew/bin\
+:$HOME/.go/bin\
+:/usr/lib/go-1.10/bin\
 :/opt/sqldeveloper\
 :/opt/kubernetes/platforms/linux/amd64\
 :/opt/android-sdk-update-manager/tools\
@@ -56,7 +58,7 @@ $HOME/bin\
 :/bin\
 :/sbin\
 "
-#:$HOME/.../bin\
+# it would be nice to interpolate $GOROOT above
 
 # seems to do more harm than good on OSX
 #export MANPATH="\
@@ -167,6 +169,10 @@ export GTK_IM_MODULE
 
 HUGSFLAGS='-E"vim +%d %s"'
 export HUGSFLAGS
+
+GOPATH="$HOME/.go"
+GOROOT='/usr/lib/go-1.10'
+export GOPATH GOROOT
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
