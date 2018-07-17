@@ -211,6 +211,8 @@ fi
 # == Perl ====================================================================
 perl5_root="$HOME/.perl5"
 export PLENV_ROOT="$perl5_root/plenv"
+# documenting this here because not sure where else
+# plenv install 5.28.0 --as=teapot --test -j 8 -Doptimize=-O2 -Dusequadmath
 
 cpanm_cpan_mirror="file://$perl5_root/minicpan/"
 export PERL_CPANM_OPT="--mirror $cpanm_cpan_mirror --mirror-only"
@@ -218,6 +220,7 @@ export PERL_CPANM_OPT="--mirror $cpanm_cpan_mirror --mirror-only"
 #   $cpanm_cpan_mirror
 
 eval "$(plenv init -)"
+
 
 # == Rakudobrew ==============================================================
 # for now, Gentoo seems to be tracking Rakudo quite nicely
