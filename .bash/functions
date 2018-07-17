@@ -301,4 +301,25 @@ date()
     fi
 }
 
+# given a directory, return the most recent file (by modification time)
+lst()
+{
+    readlink --canonicalize "$1/$(
+        ls --reverse --sort=time --quoting-style=literal "$1" | tail -n 1
+    )"
+}
+
+# copy into ^V / "paste" (e.g., menu option) buffer
+CtrlC()
+{
+    tr -d "\012" | xclip -selection clipboard
+}
+
+VimHelp()
+{
+    vim +"help $1 | only"
+}
+
+
+
 # vim:ft=sh
