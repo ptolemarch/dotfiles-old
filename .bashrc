@@ -40,6 +40,7 @@ fi
 export PATH="\
 $HOME/bin\
 :$HOME/bin/work\
+:$HOME/.perl5/plenv/bin\
 :$HOME/.rakudobrew/bin\
 :$HOME/.go/bin\
 :/usr/lib/go-1.10/bin\
@@ -207,21 +208,16 @@ if [ -v homebrew_prefix ]; then
     fi
 fi
 
-# == Perlbrew & MiniCPAN =====================================================
-#PERLBREW_CONFIGURE_FLAGS='-Duse64bitall -Dusethreads -Duseshrplib -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib -des'
-#PERLBREW_CONFIGURE_FLAGS='-Duse64bitall -Duseshrplib -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib -des'
-_pb_mc_parent="$HOME/.perl5"
-PERLBREW_CPAN_MIRROR="http://ftp.wayne.edu/CPAN/"
-PERLBREW_ROOT="$_pb_mc_parent/perlbrew"
-PERLBREW_HOME="$PERLBREW_ROOT"
-[[ -s "$PERLBREW_ROOT/etc/bashrc" ]] && source "$PERLBREW_ROOT/etc/bashrc"
-export PERLBREW_CONFIGURE_FLAGS PERLBREW_ROOT PERLBREW_HOME PERLBREW_CPAN_MIRROR
+# == Perl ====================================================================
+perl5_root="$HOME/.perl5"
+export PLENV_ROOT="$perl5_root/plenv"
 
-minicpan_root="$_pb_mc_parent/minicpan"
-cpanm_cpan_mirror="file://$minicpan_root/"
+cpanm_cpan_mirror="file://$perl5_root/minicpan/"
 export PERL_CPANM_OPT="--mirror $cpanm_cpan_mirror --mirror-only"
 # also there's an alias (in ~/.bash/aliases) so cpan-outdated respects the
 #   $cpanm_cpan_mirror
+
+eval "$(plenv init -)"
 
 # == Rakudobrew ==============================================================
 # for now, Gentoo seems to be tracking Rakudo quite nicely

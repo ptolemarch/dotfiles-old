@@ -22,3 +22,6 @@
 [submodule "/home/ptolemarch/.vim/pack/plugins/start/vim-go"]
 	path = /home/ptolemarch/.vim/pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "/home/ptolemarch/.perl5/plenv"]
+	path = /home/ptolemarch/.perl5/plenv
+	url = https://github.com/tokuhirom/plenv.git
