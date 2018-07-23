@@ -1,8 +1,0 @@
-last updated 2015 7/2 16;0
-
-To update:
-- Download from http://www.drchip.org/astronaut/vim/index.html#NETRW
-- rm -r ~/.vim/bundle/netrw
-- gunzip
-- vim netrw.vba
-- :UseVimball ~/.vim/bundle/netrw
