@@ -10,5 +10,8 @@ setlocal shiftwidth=4
 
 setlocal matchpairs+=<:>
 
+" makes it super-hard to comment out blocks
+setlocal indentkeys-=0#
+
 " this gets overwritten by $VIMRUNTIME/ftplugin/perl.vim anyway:
 setlocal comments=n:#,:#\ -
