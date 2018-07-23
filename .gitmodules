@@ -25,3 +25,6 @@
 [submodule "/home/ptolemarch/.perl5/plenv"]
 	path = /home/ptolemarch/.perl5/plenv
 	url = https://github.com/tokuhirom/plenv.git
+[submodule ".vim/bundle/Recover.vim"]
+	path = .vim/bundle/Recover.vim
+	url = git@github.com:chrisbra/Recover.vim.git
