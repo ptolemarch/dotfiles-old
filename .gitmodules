@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/haskell-vim"]
 	path = .vim/bundle/haskell-vim
 	url = git@github.com:neovimhaskell/haskell-vim.git
+[submodule ".vim/bundle/html5.vim"]
+	path = .vim/bundle/html5.vim
+	url = git@github.com:othree/html5.vim.git
