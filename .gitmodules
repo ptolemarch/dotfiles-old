@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-matchup"]
+	path = .vim/bundle/vim-matchup
+	url = git@github.com:andymass/vim-matchup.git
