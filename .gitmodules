@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/vim-matchup"]
 	path = .vim/bundle/vim-matchup
 	url = git@github.com:andymass/vim-matchup.git
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
