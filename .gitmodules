@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/Recover.vim"]
 	path = .vim/bundle/Recover.vim
 	url = git@github.com:chrisbra/Recover.vim.git
+[submodule ".vim/bundle/vim-systemd-syntax"]
+	path = .vim/bundle/vim-systemd-syntax
+	url = git@github.com:wgwoods/vim-systemd-syntax.git
