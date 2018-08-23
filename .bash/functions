@@ -304,8 +304,9 @@ date()
 # given a directory, return the most recent file (by modification time)
 lst()
 {
-    readlink --canonicalize "$1/$(
-        ls --reverse --sort=time --quoting-style=literal "$1" | tail -n 1
+    local dir="${1:-.}"
+    readlink --canonicalize "$dir/$(
+        ls --reverse --sort=time --quoting-style=literal "$dir" | tail -n 1
     )"
 }
 
