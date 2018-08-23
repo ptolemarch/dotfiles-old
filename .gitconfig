@@ -12,6 +12,8 @@
 	interactive = auto
 	showbranch = auto
 	status = auto
+[color "diff"]
+	meta = black white
 [push]
 	default = current
 [alias]
@@ -24,3 +26,6 @@
 [grep]
 	extendRegexp = true
 	lineNumber = true
+[diff]
+[difftool]
+	prompt = false
