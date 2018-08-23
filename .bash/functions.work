@@ -38,15 +38,13 @@ deals-call()
     set +o xtrace
 }
 
-mm_vpn()
+mm-vpn()
 {
     sudo \
-        /opt/forticlientsslvpn/64bit/forticlientsslvpn_cli \
-        --server remote.prod.mediamath.com:443 \
-        --vpnuser dhand
+        openfortivpn
 }
 
-stop_picard()
+stop-picard()
 {
     docker stop $(docker ps | perl -anE '/picard/ && say pop @F')
 }
