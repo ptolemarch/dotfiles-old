@@ -32,8 +32,8 @@ if [[ -f ~/.bash/functions ]]; then
 fi
 # functions for work
 # (see also EXPORTS FOR WORK, below)
-if [[ -f ~/.bash/work.functions ]]; then
-    source ~/.bash/work.functions
+if [[ -f ~/.bash/functions.work ]]; then
+    source ~/.bash/functions.work
 fi
 
 # == paths ===================================================================
