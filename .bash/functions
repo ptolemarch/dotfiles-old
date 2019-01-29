@@ -302,7 +302,7 @@ date()
 }
 
 # given a directory, return the most recent file (by modification time)
-lst()
+Lst()
 {
     local dir="${1:-.}"
     readlink --canonicalize "$dir/$(
