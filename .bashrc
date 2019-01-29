@@ -43,6 +43,7 @@ $HOME/bin\
 :$HOME/.perl5/plenv/bin\
 :$HOME/.rakudobrew/bin\
 :$HOME/.go/bin\
+:$HOME/.swift/usr/bin\
 :/usr/lib/go-1.10/bin\
 :/opt/sqldeveloper\
 :/opt/kubernetes/platforms/linux/amd64\
