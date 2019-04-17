@@ -207,7 +207,7 @@ XTerm.vt100.translations: #override  \n\
     Alt <Key>K: clear-saved-lines()  \n\
     Alt <Key>P: print-immediate()  \n\
     Alt <Key>O: set-altscreen(toggle)  \n\
-    Alt <Key>N: spawn-new-terminal()  \n\
+    Shift Ctrl <Key>N: spawn-new-terminal()  \n\
     Shift <Btn4Down>:scroll-back(1,line,m)  \n\
     Shift <Btn5Down>:scroll-forw(1,line,m) \n\
     Shift <Key>Home:scroll-back(1000,page) \n\
