@@ -234,8 +234,10 @@ xterm*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 xterm*renderFont: true
 
 ! XTerm font face:
+! Fira Code: What I decided upon for my website. Only downside is no italic.
+xterm*faceName: Fira Code Light
 ! DejaVu Sans Mono: pretty good
-xterm*faceName: DejaVu Sans Mono
+!xterm*faceName: DejaVu Sans Mono
 ! Fantasque Sans Mono: less Unicode support than DejaVu
 !xterm*faceName: Fantasque Sans Mono
 ! Inconsolata: No Greek
@@ -250,23 +252,17 @@ xterm*faceName: DejaVu Sans Mono
 !xterm*faceName: Literation Mono Powerline
 
 ! XTerm font sizes:
-! "Default"		~ 11 pretty much just right
-xterm*faceSize: 9
-
-! "Unreadable"		~ 4 pretty unreadable
+! "Default"
+xterm*faceSize: 10
+! "Unreadable"
 xterm*faceSize1: 4
-
-! "Tiny"		~ 8 pretty tiny
+! "Tiny"
 xterm*faceSize2: 7
-
-! "Small"		~ 10 surprisingly small
+! "Small"
 xterm*faceSize3: 9
-
-! "Medium"		~ 12 fairly medium
+! "Medium"
 xterm*faceSize4: 12
-
-! "Large"		20 was too big even for "Large"
+! "Large"
 xterm*faceSize5: 16
-
-! "Huge"		at 1080p, 26 => 87x24
+! "Huge"
 xterm*faceSize6: 26
