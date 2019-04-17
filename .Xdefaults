@@ -202,16 +202,18 @@ xterm*on4Clicks: regex [[:graph:]]+
 xterm*on5Clicks: line
 
 ! alt-click opens highlighted text in Firefox
-XTerm.vt100.translations: #override  \n\
+xterm.vt100.translations: #override  \n\
     Alt <Btn1Up>: exec-formatted("firefox --new-window '%t'", PRIMARY)  \n\
     Alt <Key>K: clear-saved-lines()  \n\
-    Alt <Key>P: print-immediate()  \n\
     Alt <Key>O: set-altscreen(toggle)  \n\
     Shift Ctrl <Key>N: spawn-new-terminal()  \n\
     Shift <Btn4Down>:scroll-back(1,line,m)  \n\
     Shift <Btn5Down>:scroll-forw(1,line,m) \n\
     Shift <Key>Home:scroll-back(1000,page) \n\
     Shift <Key>End:scroll-forw(1000,page)
+
+! This seems to be causing a warning
+!    Alt <Key>P: print-immediate()  \n\
 
 ! maybe also set some of these to send-signal()
 

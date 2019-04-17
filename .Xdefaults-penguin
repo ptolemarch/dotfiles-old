@@ -6,4 +6,4 @@
 !   https://superuser.com/questions/243914/what-is-the-difference-between-xresources-and-xdefaults
 !   https://superuser.com/a/243916
 
-XTerm.vt100.selectToClipboard: true
+xterm.vt100.selectToClipboard: true
