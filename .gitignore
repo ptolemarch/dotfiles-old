@@ -26,11 +26,14 @@ ptolemarch/
 *~
 .*.sw?
 .viminfo
+.viminfo.tmp
 .vim/.netrwhist
 
 # histories
 .history
 .bash_history
+.psql_history
+.units_history
 .bash/history
 .lesshst
 .rlwrap/
@@ -47,3 +50,7 @@ ptolemarch/
 .nv/
 # it'd be nice to include .minecraft/options.txt
 .minecraft/
+
+# JavaScript build stuff
+.yarnrc
+.npm/
