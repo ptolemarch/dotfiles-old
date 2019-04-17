@@ -86,7 +86,7 @@ set backupdir+=/tmp
 set showcmd
 set showmode
 set shortmess=aIoO
-set showbreak=↳\ 
+set showbreak=↘
 
 map <S-F6> :call ToggleShowBreaks()<CR>
 imap <S-F6> <C-O>:call ToggleShowBreaks()<CR>
@@ -97,7 +97,7 @@ let s:show_breaks = 1
 function ToggleShowBreaks ()
     let s:show_breaks = !s:show_breaks
     if s:show_breaks
-        set showbreak=↳\ 
+        set showbreak=↘
     else
         set showbreak=
     endif
