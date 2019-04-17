@@ -38,12 +38,12 @@ xrandr \
 #  - hexchat notifications?
 
 # start things up
-eval $(ssh-agent -s)
+#eval $(ssh-agent -s)
 xscreensaver -no-splash &
 
 #exec $HOME/Sources/wtftw/target/debug/wtftw
 /usr/bin/xmonad
 
 # shut things down
-ssh-agent -k
+#ssh-agent -k
 xscreensaver-command -exit
