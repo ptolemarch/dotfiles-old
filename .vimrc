@@ -260,6 +260,7 @@ endfunction
 "============================================================================
 
 filetype plugin indent on  " apparently this might be redundant?
+syntax on
 
 "----------------------------------------------------------------------------
 " Available keybindings:
