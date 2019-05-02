@@ -222,13 +222,17 @@ export PERL_CPANM_OPT="--mirror $cpanm_cpan_mirror --mirror-only"
 
 eval "$(plenv init -)"
 
-
 # == Rakudobrew ==============================================================
 # for now, Gentoo seems to be tracking Rakudo quite nicely
 # but maybe I'll play with rakudobrew some more
 if [[ -e ~/.rakudobrew/bin/rakudobrew ]]; then
     eval "$(~/.rakudobrew/bin/rakudobrew init -)"
 fi
+
+# == NVM =====================================================================
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # == git-hub (by Ingy döt Net) ===============================================
 #[[ -s ~/Code/_/git-hub/init ]] && source ~/Code/_/git-hub/init

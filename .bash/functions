@@ -262,7 +262,23 @@ emu()
 
 CxL()
 {
-    echo $COLUMNS x $LINES
+    for numeric_candidate in "$1" "$2" ; do
+        numeric_regex='^[0-9]+$'
+        if [[ $numeric_candidate =~ $numeric_regex ]]; then :; else
+            echo "$COLUMNS x $LINES"
+            return
+        fi
+    done
+
+    local columns="$1"
+    local lines="$2"
+
+    # if both are numbers, resize xterm
+    # using dtterm-style "extended window control sequences"
+    # search for allowWindowOps in xterm(1)
+    echo -ne "\e[8;${lines};${columns}t"
+    # builtin variables $COLUMNS and $LINES haven't had a chance to update yet
+    echo "$columns x $lines (resized)"
 }
 
 # had to go back to vpnc
