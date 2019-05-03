@@ -77,7 +77,9 @@ Ida*background: white
 !  /usr/share/X11/app-defaults/XTerm-color
 ! An interesting reference: http://www.in-ulm.de/~mascheck/X11/XTerm
 xterm*termName: xterm-256color
-xterm*locale: true
+xterm*locale: false
+xterm.vt100.utf8: always
+xterm.vt100.utf8Fonts: always
 ! I thought this might be good? NO. It really breaks shit.
 !xterm*eightBitControl: true
 
@@ -227,6 +229,9 @@ xterm*printAttributes: 2
 xterm*printModeImmediate: 2
 ! the above does not seem to be working yet
 
+! no internal border might be nice to try
+xterm.vt100.internalBorder: 0
+
 ! XTerm bitmap font
 !xterm*font: -windows-proggyclean-medium-r-normal--13-80-96-96-c-70-iso8859-1
 xterm*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
@@ -236,10 +241,12 @@ xterm*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
 xterm*renderFont: true
 
 ! XTerm font face:
-! Fira Code: What I decided upon for my website. Only downside is no italic.
-xterm*faceName: Fira Code Light
-! DejaVu Sans Mono: pretty good
-!xterm*faceName: DejaVu Sans Mono
+! Noto Mono: lots of unicode, theoretically. Theoretically.
+!xterm*faceName: Noto Mono
+! Fira Code: What I decided upon for my website.
+!xterm*faceName: Fira Code Light
+! DejaVu Sans Mono: apparently better Unicode than Noto Mono
+xterm*faceName: DejaVu Sans Mono
 ! Fantasque Sans Mono: less Unicode support than DejaVu
 !xterm*faceName: Fantasque Sans Mono
 ! Inconsolata: No Greek
