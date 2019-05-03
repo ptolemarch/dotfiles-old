@@ -29,3 +29,7 @@
 [diff]
 [difftool]
 	prompt = false
+[pull]
+	rebase = true
+[merge]
+	ff = false
