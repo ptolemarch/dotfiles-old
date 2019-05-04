@@ -1,0 +1,11 @@
+# found this terminal emulator mentioned on Reddit:
+#  https://www.reddit.com/r/Crostini/comments/a7v5iw/think_i_found_the_best_terminal_app_for_crostini/
+# in that conversation was a link to a Pastebin, from which I adapted this file:
+#  https://pastebin.com/aSefgfNK
+[Desktop Entry]
+Name=Extraterm
+Version=0.38.1
+Comment=The swiss army chainsaw of terminal emulators
+Exec=/opt/extraterm-0.41.4-linux-x64/extraterm
+Icon=/opt/extraterm-0.41.4-linux-x64/resources/app/extraterm/resources/logo/extraterm_small_logo_256x256.png
+Type=Application

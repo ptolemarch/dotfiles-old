@@ -263,3 +263,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# == Extraterm ===============================================================
+if [[ "$CHROME_DESKTOP" == "extraterm.desktop" ]]; then
+    extraterm_bin_dir="$(dirname "$(readlink -f /proc/$PPID/exe)")"
+    extraterm_command_dir="${extraterm_bin_dir%%-linux*}"
+    extraterm_command_dir="${extraterm_command_dir/extraterm-/extraterm-commands-}"
+    if [[ -f "$extraterm_command_dir"/setup_extraterm_bash.sh ]]; then
+        . "$extraterm_command_dir"/setup_extraterm_bash.sh
+    fi
+fi
