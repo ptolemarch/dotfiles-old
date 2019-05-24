@@ -226,7 +226,7 @@ eval "$(plenv init -)"
 # for now, Gentoo seems to be tracking Rakudo quite nicely
 # but maybe I'll play with rakudobrew some more
 if [[ -e ~/.rakudobrew/bin/rakudobrew ]]; then
-    eval "$(~/.rakudobrew/bin/rakudobrew init -)"
+    eval "$(~/.rakudobrew/bin/rakudobrew init Bash)"
 fi
 
 # == NVM =====================================================================
