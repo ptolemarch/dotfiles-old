@@ -38,13 +38,17 @@ ptolemarch/
 .lesshst
 .rlwrap/
 
+
+# these both seem to mix configuration with logs, cache, etc.
+#.local/
+#.config/
+
 # caches and logs and sessions and such
 .compiz/
 .gconf/
 .java/
 .lastpass/
 .oracle_jre_usage/
-.local/
 .mozilla/
 .cache/
 .nv/
