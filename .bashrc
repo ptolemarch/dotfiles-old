@@ -40,6 +40,7 @@ fi
 export PATH="\
 $HOME/bin\
 :$HOME/bin/work\
+:$HOME/.yadm-project/\
 :$HOME/.perl5/plenv/bin\
 :$HOME/.rakudobrew/bin\
 :$HOME/.go/bin\
