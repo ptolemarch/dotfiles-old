@@ -50,3 +50,6 @@
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
 	branch = master
+[submodule ".yadm-project"]
+	path = .yadm-project
+	url = https://github.com/TheLocehiliosan/yadm.git
