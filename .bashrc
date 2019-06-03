@@ -94,6 +94,11 @@ $HOME/include\
 "
 export CPATH="$INCLUDE"
 
+# == work environment ========================================================
+# clearbuilt
+clearbuilt_env=/srv/efab/DAVID/ENV 
+[[ -r "$clearbuilt_env" ]] && source "$clearbuilt_env" 
+
 # == mail ====================================================================
 MAILCHECK=10
 newmail="\e[97;41mNEW MAIL\e[m"
