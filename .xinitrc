@@ -6,10 +6,10 @@
 # looks like it doesn't actually hurt anything to just run this,
 #  even if not everything's there
 # work office
-xrandr \
-	--output eDP1	--auto --primary		\
-	--output VGA1	--auto --left-of	eDP1	\
-	--output HDMI1	--auto --right-of	eDP1	
+#xrandr \
+#	--output eDP1	--auto --primary		\
+#	--output VGA1	--auto --left-of	eDP1	\
+#	--output HDMI1	--auto --right-of	eDP1	
 
 # home office
 #xrandr \
@@ -39,11 +39,11 @@ xrandr \
 
 # start things up
 #eval $(ssh-agent -s)
-xscreensaver -no-splash &
+#xscreensaver -no-splash &
 
 #exec $HOME/Sources/wtftw/target/debug/wtftw
 /usr/bin/xmonad
 
 # shut things down
 #ssh-agent -k
-xscreensaver-command -exit
+#xscreensaver-command -exit
