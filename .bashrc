@@ -182,8 +182,9 @@ GOPATH="$HOME/.go"
 GOROOT='/usr/lib/go-1.10'
 export GOPATH GOROOT
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# make less more friendly for non-text input files
+#   see lesspipe(1) or read /usr/bin/lesspipe
+[ -x /usr/bin/lesspipe ] && export LESSOPEN="|lesspipe %s"
 
 # == development =============================================================
 
