@@ -55,4 +55,4 @@
 	url = https://github.com/TheLocehiliosan/yadm.git
 [submodule ".vim/bundle/jq.vim"]
 	path = .vim/bundle/jq.vim
-	url = git@github.com:vito-c/jq.vim.git
+	url = https://github.com/vito-c/jq.vim.git
