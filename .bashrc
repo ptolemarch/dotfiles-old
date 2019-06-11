@@ -24,6 +24,20 @@ stty \
 #   BUT NOT HERE AT HOME:
 #ssh-add -L | perl -anE '$F[2] =~ s{^.*/.ssh/}{$ENV{HOME}/.ssh/}; $FH=">$F[2].pub"; open FH or die; $,=" "; say FH @F; close FH or die'
 
+# == Termux ==================================================================
+# I'm not thrilled with this section. It seems hackish. Nice to do this more
+# cleanly somehow?
+for i in $PREFIX/etc/profile.d/*.sh; do
+	if [ -r $i ]; then
+		. $i
+	fi
+done
+unset i
+
+command_not_found_handle() {
+	/data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+}
+
 # == functions ===============================================================
 # functions I might use here
 # see end of .bashrc for .aliases
@@ -39,6 +53,7 @@ fi
 # == paths ===================================================================
 export PATH="\
 $HOME/bin\
+:$PREFIX/bin:$PREFIX/bin/applets\
 :$HOME/bin/work\
 :$HOME/.yadm-project/\
 :$HOME/.perl5/plenv/bin\
@@ -268,6 +283,8 @@ if ! shopt -oq posix; then
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  elif [ -f $PREFIX/etc/bash_completion ]; then
+    . $PREFIX/etc/bash_completion
   fi
 fi
 
