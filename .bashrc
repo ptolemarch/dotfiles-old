@@ -62,6 +62,7 @@ $HOME/bin\
 :$HOME/.swift/usr/bin\
 :/usr/lib/go-1.10/bin\
 :/opt/sqldeveloper\
+:/opt/ghc/bin\
 :/opt/kubernetes/platforms/linux/amd64\
 :/opt/android-sdk-update-manager/tools\
 :/opt/android-sdk-update-manager/platform-tools\
