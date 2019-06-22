@@ -48,3 +48,5 @@ alias 'notify-alert'='notify-send --urgency=low -i "$([ $? = 0 ] && echo termina
 #  also all /
 #  blargh
 alias yadm-encrypt-diffs="vimdiff <(yadm decrypt -l | perl -anE 's/^(\\S+\\s\\w+\\/\\w+)\\s+(\\d+)/\$1 \$2/; print' | sort -k6) <(ls -l --time-style=+'%Y-%m-%d %H:%M' \$(yadm decrypt -l | perl -anE 's/^\\S+ \\w+\\/\\w+ +\\d+ [\\d-]+ [\\d:]+ //; s/ /\\ /g; print') | perl -anE 'next if /^total/; s/^(\\S+\\s)\\d+\\s(\\w+)\\s(\\w+)\\s+(\\d+)/\$1\$2\/\$3 \$4/; print' | sort -k6)"
+
+alias xclipc='xclip -selection clipboard'
