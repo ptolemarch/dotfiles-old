@@ -66,6 +66,7 @@ $HOME/bin\
 :/opt/kubernetes/platforms/linux/amd64\
 :/opt/android-sdk-update-manager/tools\
 :/opt/android-sdk-update-manager/platform-tools\
+:/usr/local/perl-trdc/bin\
 :/usr/local/bin\
 :/usr/local/sbin\
 :/usr/games/\
