@@ -240,7 +240,7 @@ let perl_sub_signatures = 1
 "-- Code --------------------------------------------------------------------
 let perl_include_pod=1  " perl highlighter should recognize POD
 
-"-- Geeknet -----------------------------------------------------------------
+"-- Work whitespace ---------------------------------------------------------
 function Geeknet_whitespace ()
     setlocal tabstop=8
     setlocal shiftwidth=8
@@ -250,6 +250,12 @@ endfunction
 function Pivotal_whitespace ()
     setlocal tabstop=2
     setlocal shiftwidth=2
+    setlocal expandtab
+endfunction
+
+function Clearbuilt_whitespace ()
+    setlocal tabstop=3
+    setlocal shiftwidth=3
     setlocal expandtab
 endfunction
 

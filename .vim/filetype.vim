@@ -9,4 +9,5 @@ augroup filetypedetect
     autocmd! BufRead,BufNewFile */Code/Slashdot/slash/* call Geeknet_whitespace()
     autocmd! BufRead,BufNewFile *;*          setfiletype tt2html
     autocmd! BufRead,BufNewFile */Code/Slashdot/slashmob/* call Pivotal_whitespace()
+    autocmd! BufRead,BufNewFile */eFab/* call Clearbuilt_whitespace()
 augroup END
