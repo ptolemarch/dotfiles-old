@@ -26,6 +26,7 @@ OPTIONS=autodig
 
 # basic display options
 OPTIONS=windowtype:tty
+OPTIONS=extmenu
 OPTIONS=color
 OPTIONS=use_darkgray
 OPTIONS=eight_bit_tty
@@ -37,6 +38,10 @@ OPTIONS=lit_corridor
 OPTIONS=standout
 OPTIONS=runmode:walk
 OPTIONS=!null
+OPTIONS=timed_delay
+OPTIONS=implicit_uncursed
+
+OPTIONS=rawio
 
 # curses options
 OPTIONS=!DECgraphics
@@ -73,10 +78,10 @@ OPTIONS=showscore
 OPTIONS=time
 OPTIONS=mail
 OPTIONS=news
+OPTIONS=hpmon
 
 # Autopickup
 OPTIONS=autopickup, pickup_types:$"?+!=/
-
 
 ## Show item glyphs (color and symbol) in tty menus.
 #OPTION=menu_glyphs
