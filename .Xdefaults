@@ -244,9 +244,9 @@ xterm*renderFont: true
 ! Noto Mono: lots of unicode, theoretically. Theoretically.
 !xterm*faceName: Noto Mono
 ! Fira Code: What I decided upon for my website.
-!xterm*faceName: Fira Code Light
+xterm*faceName: Fira Code
 ! DejaVu Sans Mono: apparently better Unicode than Noto Mono
-xterm*faceName: DejaVu Sans Mono
+!xterm*faceName: DejaVu Sans Mono
 ! Fantasque Sans Mono: less Unicode support than DejaVu
 !xterm*faceName: Fantasque Sans Mono
 ! Inconsolata: No Greek
