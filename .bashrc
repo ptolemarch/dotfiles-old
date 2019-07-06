@@ -25,18 +25,18 @@ stty \
 #ssh-add -L | perl -anE '$F[2] =~ s{^.*/.ssh/}{$ENV{HOME}/.ssh/}; $FH=">$F[2].pub"; open FH or die; $,=" "; say FH @F; close FH or die'
 
 # == Termux ==================================================================
-# I'm not thrilled with this section. It seems hackish. Nice to do this more
-# cleanly somehow?
-for i in $PREFIX/etc/profile.d/*.sh; do
-	if [ -r $i ]; then
-		. $i
-	fi
-done
-unset i
+if [[ $PREFIX =~ com.termux ]]; then
+    for i in $PREFIX/etc/profile.d/*.sh; do
+        if [ -r $i ]; then
+            . $i
+        fi
+    done
+    unset i
 
-command_not_found_handle() {
-	/data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
-}
+    command_not_found_handle() {
+        /data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+    }
+fi
 
 # == functions ===============================================================
 # functions I might use here
