@@ -321,8 +321,10 @@ date()
 Lst()
 {
     local dir="${1:-.}"
+    local count="${2:-1}"
     readlink --canonicalize "$dir/$(
-        ls --reverse --sort=time --quoting-style=literal "$dir" | tail -n 1
+        ls --reverse --sort=time --quoting-style=literal "$dir" \
+        | tail -n "$count"
     )"
 }
 
