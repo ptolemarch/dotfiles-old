@@ -299,3 +299,6 @@ if [[ "$CHROME_DESKTOP" == "extraterm.desktop" ]]; then
         . "$extraterm_command_dir"/setup_extraterm_bash.sh
     fi
 fi
+
+# == yadm: Yet Another Dotfiles Manager ======================================
+export YADM_COMPATIBILITY=1  # until we've finished transitioning to YADM 2
