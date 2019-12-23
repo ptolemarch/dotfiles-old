@@ -2,26 +2,13 @@
 " David 'cogent' Hand  2007-0924-1047
 "
 "   vim: ai et ts=4 sw=4 tw=77
-"
-" 2008-1002-1816  modified somewhat
 
-" Keybindings used in this .vimrc:
-" <F1>      toggle highlight of the line and olumn that the cursor is on
-" <F5>      toggle highlighting of search results
-" <S-F5>    toggle highlighting of certain random annoyances in the text
-" <F6>      toggle paste mode
-" <S-F6>    toggle "↳\ " at the beginning of continued lines
-" »         :next
-" «         :prev
-" |         toggle status-line display of command-line file position
-
-" TOOO: 
+" TOOO:
 " - fullscreen = command+enter
 " - maybe find a better light-background color scheme?
-" - vim-perl (incl. template toolkit)
 
 "============================================================================
-"   Pathogen 
+"   Pathogen
 "   https://github.com/tpope/vim-pathogen
 "   http://www.vim.org/scripts/script.php?script_id=2332
 "----------------------------------------------------------------------------
@@ -88,20 +75,7 @@ set showmode
 set shortmess=aIoO
 set showbreak=↘
 
-map <S-F6> :call ToggleShowBreaks()<CR>
-imap <S-F6> <C-O>:call ToggleShowBreaks()<CR>
-map <Esc>[26~ :call ToggleShowBreaks()<CR>
-imap <Esc>[26~ <C-O>:call ToggleShowBreaks()<CR>
-
-let s:show_breaks = 1
-function ToggleShowBreaks ()
-    let s:show_breaks = !s:show_breaks
-    if s:show_breaks
-        set showbreak=↘
-    else
-        set showbreak=
-    endif
-endfunction
+" key mapping to toggle 'showbreak' below, under Key Maps
 
 "   GUI
 set mousehide
@@ -115,7 +89,7 @@ set splitright
 "   GUI
 "----------------------------------------------------------------------------
 if has('gui_running')
-    nmap <D-CR> :set fullscreen!<CR>
+    " also a key map below, under Key Maps
     set number
     set relativenumber
 endif
@@ -163,42 +137,9 @@ function CogentStatusLineArglistPos ()
     endif
 endfunction
 
-"-- Catch Mistakes and Annoyances -------------------------------------------
-"map <S-F5> :call ToggleMatchMistakes()<CR>
-"imap <S-F5> <C-O>:call ToggleMatchMistakes()<CR>
-"map <Esc>[25~ :call ToggleMatchMistakes()<CR>
-"imap <Esc>[25~ <C-O>:call ToggleMatchMistakes()<CR>
-
-let s:match_mistakes = 0
-function ToggleMatchMistakes ()
-    let s:match_mistakes = !s:match_mistakes
-
-    if s:match_mistakes
-        let s:mistakes_WSpaceAtEOL_id  = matchadd('WSpaceAtEOL',  '\s\+$')
-        let s:mistakes_LongLineMark_id = matchadd('LongLineMark', '%78c')
-    else
-        call matchdelete(s:mistakes_WSpaceAtEOL_id)
-        call matchdelete(s:mistakes_LongLineMark_id)
-    endif
-endfunction
-
 "-- vimdiff -----------------------------------------------------------------
 " ignore whitespace differences in diff mode
 set diffopt+=iwhite
-
-"-- Other Presentation & Fun Toys -------------------------------------------
-" paste mode (can't use map, because 'paste' will capture the <F6>)
-set pastetoggle=<F6>
-
-" invert search highlighting
-"map <F5> :set invhlsearch<CR>
-"imap <F5> <C-O>:set invhlsearch<CR>
-
-" really show where the cursor is
-map <F1> :set invcursorcolumn invcursorline<CR>
-imap <F1> <C-O>:set invcursorcolumn invcursorline<CR>
-
-" a key mapping to toggle fo+=a and fo-=a ?
 
 "============================================================================
 "   Behaviors
@@ -220,17 +161,12 @@ set virtualedit=block
 set scrolloff=0  " I thought it might be nice to set this to 2.  It wasn't.
 set nostartofline
 
-"-- Multiple Files ----------------------------------------------------------
-map « :prev<CR>
-map » :next<CR>
-map \ :call ToggleCogentStatusLineArglistPos()<CR>
-
 "-- Mac OS X cut & paste ----------------------------------------------------
 
 "============================================================================
 "   Options Specific to File Types
 "   (indenting, formatting, comments, compiling, printing(?),
-"   spell-checking, autocompletion) 
+"   spell-checking, autocompletion)
 "----------------------------------------------------------------------------
 " many of these have been moved to ~/.vim/ftplugin/*.vim
 
@@ -260,6 +196,112 @@ function Clearbuilt_whitespace ()
 endfunction
 
 "============================================================================
+"   Key Maps
+"----------------------------------------------------------------------------
+" Available keybindings:
+"     See also:
+"       - :help map-which-keys
+"       - :help index (search for "not used")
+"
+"   \  (no-op)
+"   -  (up by N, to first nonblank)
+"   +  (down by N, to first nonblank)
+"   _  (down by N-1, FFS, to first nonblank)
+"   &  (synonym for :s (repeat last substitute))
+"   Q  (switch to Ex mode)
+"   K  (run 'keywordprg', e.g. `man`, on word under cursor)
+"   Z  (default is ZZ and ZQ, both save-and-quit)
+"
+"   <Space> <CR> <BS>  (redundant movement commands)
+"   <Up> <Down> <Left> <Right>  (redundant movement commands)
+"
+"   <F1> ... <F12>
+"   <S-F1> ... <S-F8>
+"   <Tab> & <Esc>[Z   (tab & shift-tab)
+"
+" Shift-X is <s-x>
+" Control-X is <c-x>
+" maybe best to avoid alt, which is complicated: :help :map-alt-keys
+" Cmd-X is <d-x>
+"
+" xterm on chromeos, at least, doesn't recognize any difference between
+" <bs> and <s-bs>
+"
+" Remember multi-key keybindings!
+" Also remember 'mapleader' and 'maplocalleader'
+"----------------------------------------------------------------------------
+" Keybindings used in this .vimrc:
+" <F1>      toggle highlight of the line and olumn that the cursor is on
+" <F5>      toggle highlighting of search results
+" <S-F5>    toggle highlighting of certain random annoyances in the text
+" <F6>      toggle paste mode
+" <S-F6>    toggle "↳\ " at the beginning of continued lines
+" »         :next
+" «         :prev
+" |         toggle status-line display of command-line file position
+"----------------------------------------------------------------------------
+
+" <tab> is already "go to N newer entry in jump list"
+"  so make <s-tab> the reverse of that
+nnoremap <s-tab> <c-o>
+
+noremap <S-F6> :call ToggleShowBreaks()<CR>
+inoremap <S-F6> <C-O>:call ToggleShowBreaks()<CR>
+noremap <Esc>[26~ :call ToggleShowBreaks()<CR>
+inoremap <Esc>[26~ <C-O>:call ToggleShowBreaks()<CR>
+
+let s:show_breaks = 1
+function ToggleShowBreaks ()
+    let s:show_breaks = !s:show_breaks
+    if s:show_breaks
+        set showbreak=↘
+    else
+        set showbreak=
+    endif
+endfunction
+
+if has('gui_running')
+    nnoremap <D-CR> :set fullscreen!<CR>
+endif
+
+"-- Catch Mistakes and Annoyances -------------------------------------------
+"noremap <S-F5> :call ToggleMatchMistakes()<CR>
+"inoremap <S-F5> <C-O>:call ToggleMatchMistakes()<CR>
+"noremap <Esc>[25~ :call ToggleMatchMistakes()<CR>
+"inoremap <Esc>[25~ <C-O>:call ToggleMatchMistakes()<CR>
+
+let s:match_mistakes = 0
+function ToggleMatchMistakes ()
+    let s:match_mistakes = !s:match_mistakes
+
+    if s:match_mistakes
+        let s:mistakes_WSpaceAtEOL_id  = matchadd('WSpaceAtEOL',  '\s\+$')
+        let s:mistakes_LongLineMark_id = matchadd('LongLineMark', '%78c')
+    else
+        call matchdelete(s:mistakes_WSpaceAtEOL_id)
+        call matchdelete(s:mistakes_LongLineMark_id)
+    endif
+endfunction
+
+" really show where the cursor is
+noremap <F1> :set invcursorcolumn invcursorline<CR>
+inoremap <F1> <C-O>:set invcursorcolumn invcursorline<CR>
+
+" invert search highlighting
+"noremap <F5> :set invhlsearch<CR>
+"inoremap <F5> <C-O>:set invhlsearch<CR>
+
+" a key mapping to toggle fo+=a and fo-=a ?
+
+" paste mode (can't use map, because 'paste' will capture the <F6>)
+set pastetoggle=<F6>
+
+"-- Multiple Files ----------------------------------------------------------
+noremap « :prev<CR>
+noremap » :next<CR>
+noremap \ :call ToggleCogentStatusLineArglistPos()<CR>
+
+"============================================================================
 "----------------------------------------------------------------------------
 " Orphans!
 "----------------------------------------------------------------------------
@@ -268,19 +310,10 @@ endfunction
 filetype plugin indent on  " apparently this might be redundant?
 syntax on
 
-"----------------------------------------------------------------------------
-" Available keybindings:
-"
-"   Q K 0  <Space> <CR> <BS>
-"   <F1> ... <F12>
-"   <S-F1> ... <S-F8>
-"   <Up> <Down> <Left> <Right>
-"   <Tab> & <Esc>[Z   (tab & shift-tab)
-"   \
-"
-"   ;x
-"
-"   Cmd-N is <D-N>
-"
-" Remember multi-key keybindings!
-"----------------------------------------------------------------------------
+
+"-- Learn Vimscript the Hard Way --------------------------------------------
+
+" in insert mode, ^U UPPERCASES current word
+inoremap <c-u> <esc>viwUgi
+" now in normal mode
+nnoremap <c-u> <esc>gUiw
