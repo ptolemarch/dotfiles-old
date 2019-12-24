@@ -325,6 +325,9 @@ syntax on
 "-- Learn Vimscript the Hard Way --------------------------------------------
 
 " in insert mode, ^U UPPERCASES current word
-inoremap <c-u> <esc>viwUgi
+inoremap <leader><c-u> <esc>viwUgi
 " now in normal mode
-nnoremap <c-u> <esc>gUiw
+nnoremap <leader><c-u> <esc>gUiw
+
+noremap <leader>ev :vsplit $MYVIMRC<cr>
+noremap <leader>sv :source $MYVIMRC<cr>
