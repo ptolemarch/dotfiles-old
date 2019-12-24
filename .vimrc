@@ -8,6 +8,16 @@
 " - maybe find a better light-background color scheme?
 
 "============================================================================
+"   mapleader and maplocalleader
+"   set here before any plugins are loaded because once a mapping is defined
+"   (e.g. by a plugin), changing map{local}leader doesn't change the mapping
+"----------------------------------------------------------------------------
+" by default, mapleader is a backslash. Use that.
+unlet! mapleader
+" no default for maplocalleader
+let maplocalleader = "\<bs>"
+
+"============================================================================
 "   Pathogen
 "   https://github.com/tpope/vim-pathogen
 "   http://www.vim.org/scripts/script.php?script_id=2332
@@ -228,7 +238,8 @@ endfunction
 " <bs> and <s-bs>
 "
 " Remember multi-key keybindings!
-" Also remember 'mapleader' and 'maplocalleader'
+" Also remember 'mapleader' and 'maplocalleader', defined at the top of the
+" script, before plugins are loaded. See :help mapleader
 "----------------------------------------------------------------------------
 " Keybindings used in this .vimrc:
 " <F1>      toggle highlight of the line and olumn that the cursor is on
