@@ -234,6 +234,9 @@ endfunction
 " maybe best to avoid alt, which is complicated: :help :map-alt-keys
 " Cmd-X is <d-x>
 "
+" One thing to keep in mind is that insert-mode maps may be weird. In
+" particular, <leader> applies in insert mode for :map :map! :imap and :lmap
+"
 " xterm on chromeos, at least, doesn't recognize any difference between
 " <bs> and <s-bs>
 "
@@ -318,6 +321,16 @@ noremap \ :call ToggleCogentStatusLineArglistPos()<CR>
 "----------------------------------------------------------------------------
 "============================================================================
 
+" taken from $VIMRUNTIME/defaults.vim
+"if !exists(":DiffOrig")
+"  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+"		  \ | wincmd p | diffthis
+"endif
+"
+" now I need a key map to make this easier, and another one to close the
+"  damned diff once I'm done
+" Also to make it so it doesn't fuck up the original goddamned window. WTF
+
 filetype plugin indent on  " apparently this might be redundant?
 syntax on
 
@@ -331,3 +344,20 @@ nnoremap <leader><c-u> <esc>gUiw
 
 noremap <leader>ev :vsplit $MYVIMRC<cr>
 noremap <leader>sv :source $MYVIMRC<cr>
+
+" command abbreviations seem pretty handy actually
+" the following is to make it easier to do things like:
+"   :verbose map      " show mappings and also where they were set
+"   :verbose abbrev   " show abbreviations and also where they were set
+"   :verbose set ea?  " is 'equalalways' set?  If so, where?
+"
+cabbrev VV verbose
+" might be nice to have cabbrevs for
+"   \s\+$
+"   ^\[<=>]\{7}
+
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+vnoremap <leader>' <esc>`>a'<esc>`<a'<esc>
+
+" not a bad idea, this. from Chapter 10
+inoremap jk <esc>
