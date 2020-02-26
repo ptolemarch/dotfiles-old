@@ -301,4 +301,4 @@ if [[ "$CHROME_DESKTOP" == "extraterm.desktop" ]]; then
 fi
 
 # == yadm: Yet Another Dotfiles Manager ======================================
-export YADM_COMPATIBILITY=1  # until we've finished transitioning to YADM 2
+#export YADM_COMPATIBILITY=1  # until we've finished transitioning to YADM 2
