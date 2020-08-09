@@ -33,6 +33,9 @@ _die()
 
 cd "$HOME" || die 1 "can't cd to '$HOME'"
 
+# get temporary yadm
+source <(curl -L bootstrap.yadm.io)
+
 yadm submodule update --init --recursive
 
 
