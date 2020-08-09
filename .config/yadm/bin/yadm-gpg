@@ -1,0 +1,7 @@
+#! /bin/sh
+
+printf "passphrase >" 1>&2
+read -sr < /dev/tty
+gpg --batch --passphrase-fd 0 --pinentry-mode=loopback "$@" <<END_PASSPHRASE
+$REPLY
+END_PASSPHRASE

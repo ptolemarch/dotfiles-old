@@ -15,6 +15,8 @@
 _YADM_BOOTSTRAP_URL='bootstrap.yadm.io'
 _DOTFILES_REPO='https://github.com/ptolemarch/dotfiles.git'
 
+_YADM_CONFIG_DIR="$HOME/.config/yadm"
+
 ## =====================================================================
 ##  functions
 ## ---------------------------------------------------------------------
@@ -86,6 +88,23 @@ source_yadm_bootstrap()
     fi
 }
 
+enable_decrypt_under_sudo()
+{
+    local tty="$(tty)"
+
+    # is tty readable by us? If not, pinentry prolly won't work.
+    if [[ -w "$tty" ]]; then :; else
+        _warn "It looks like gpg isn't going to work in the normal way," \
+              "so let's try to work around that."
+
+        yadm config yadm.gpg-program "$_YADM_CONFIG_DIR/bin/yadm-gpg" \
+        || _die 1 "My attempt to get gpg to work seems to have failed." \
+                  "Stopping here before I mess anything up further."
+        
+        _warn "...okay, here goes nothing"
+    fi
+}
+
 ## =====================================================================
 ##  main program
 ## ---------------------------------------------------------------------
@@ -129,17 +148,18 @@ git fetch                           || problems="$(( problems + 1 ))"
 cd ..                               || problems="$(( problems + 1 ))"
 
 # decrypt .yadm-private
+enable_decrypt_under_sudo
 yadm decrypt                        || problems="$(( problems + 1 ))"
 
 # sign off
 if [ -z "$problems" ]; then
-    echo "Everything seems to have worked! (problem count: $problems)."
-    echo "You probably want to log out and back in now."
+    _warn "Everything seems to have worked! (problem count: $problems)." \
+          "You probably want to log out and back in now."
 
     exit 0
 else
-    echo "ATTENTION! THERE WERE PROBLEMS! (problem count: $problems)"
-    echo "Sorry. You should probably look into them before logging out."
+    _warn "ATTENTION! THERE WERE PROBLEMS! (problem count: $problems)" \
+          "Sorry. You should probably look into them before logging out."
 
     exit 1
 fi
