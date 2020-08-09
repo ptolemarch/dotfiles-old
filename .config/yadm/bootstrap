@@ -1,0 +1,45 @@
+#! /bin/bash
+# vim: ts=4 sw=4 et ai
+
+# one-line installation of dotfiles:
+#  curl -L bootstrap.yadm.io | bash -s -- https://github.com/ptolemarch/dotfiles.git
+
+## =====================================================================
+##  functions
+## ---------------------------------------------------------------------
+
+_blurt()
+{
+    printf "$@" 1>&2
+}
+
+_warn()
+{
+    for line in "$@"; do
+        echo "$line" 1>&2
+    done
+}
+
+_die()
+{
+    errval="$1"; shift
+    _warn "$@"
+    exit "$errval"
+}
+
+## =====================================================================
+##  main program
+## ---------------------------------------------------------------------
+
+cd "$HOME" || die 1 "can't cd to '$HOME'"
+
+yadm submodule update --init --recursive
+
+
+# - save GitHub PAT?
+#   - would be nice to do this first, so the PAT is still available, maybe
+#     still in clipboard
+
+# - initialize submodules
+
+# - decrypt .yadm-private
