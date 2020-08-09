@@ -4,6 +4,8 @@
 # one-line installation of dotfiles:
 #  curl -L bootstrap.yadm.io | bash -s -- https://github.com/ptolemarch/dotfiles.git
 
+_YADM_BOOTSTRAP_URL='bootstrap.yadm.io'
+
 ## =====================================================================
 ##  functions
 ## ---------------------------------------------------------------------
@@ -27,6 +29,42 @@ _die()
     exit "$errval"
 }
 
+is_present()
+{
+    command="$1"; shift
+
+    command -v "$command" > /dev/null 2>&1
+}
+
+source_yadm_bootstrap()
+{
+    if is_present yadm; then
+        _warn "yadm was found installed. I wasn't expecting this," \
+              "  but perhaps we can continue with the yadm you have."
+
+        if yadm version | grep 'yadm 2'; then
+            _warn "yadm version 2 found; probably safe to proceed"
+        else
+            _die 1 "yadm found, but not version 2; I haven't coded for this."
+        fi
+    fi
+
+    _warn "attempting to make temporary file (to source yadm bootstrap)"
+    yadm_bootstrap_temp=`mktemp` \
+    || _die 1 "can't make temporary file for YADM bootstrap"
+    _warn "made temporary YADM bootstrap file: '$yadm_bootstrap_temp'"
+
+    curl -L "$_YADM_BOOTSTRAP_URL" > "$yadm_bootstrap_temp"
+    source "$yadm_bootstrap_temp" > /dev/null
+    rm "$yadm_bootstrap_temp"
+
+    if is_present yadm; then :; else
+        _die 1 "yadm should exist at this moment (probably as a function)" \
+               "  but it doesn't exist. I can't proceed without it."
+    fi
+}
+
+
 ## =====================================================================
 ##  main program
 ## ---------------------------------------------------------------------
@@ -34,7 +72,7 @@ _die()
 cd "$HOME" || die 1 "can't cd to '$HOME'"
 
 # get temporary yadm
-source <(curl -L bootstrap.yadm.io)
+source_yadm_bootstrap
 
 yadm submodule update --init --recursive
 
