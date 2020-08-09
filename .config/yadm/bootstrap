@@ -4,7 +4,16 @@
 # one-line installation of dotfiles:
 #  curl -L bootstrap.yadm.io | bash -s -- https://github.com/ptolemarch/dotfiles.git
 
+# NOTE I'll need to enter my GitHub Personal Access Token
+# (see https://github.com/settings/tokens) and the symmetric password
+# to decrypt the contents of .yadm-private
+
+## =====================================================================
+##  configuration
+## ---------------------------------------------------------------------
+
 _YADM_BOOTSTRAP_URL='bootstrap.yadm.io'
+_DOTFILES_REPO='https://github.com/ptolemarch/dotfiles.git'
 
 ## =====================================================================
 ##  functions
@@ -36,6 +45,19 @@ is_present()
     command -v "$command" > /dev/null 2>&1
 }
 
+assert_commands_present()
+{
+    for command in "$@"; do
+        _blurt "checking for '$command'... "
+        if is_present "$command"; then
+            which "$command"
+        else
+            _die 1 "can't find command '$command' installed," \
+                   "  which I require"
+        fi
+    done
+}
+
 source_yadm_bootstrap()
 {
     if is_present yadm; then
@@ -64,23 +86,60 @@ source_yadm_bootstrap()
     fi
 }
 
-
 ## =====================================================================
 ##  main program
 ## ---------------------------------------------------------------------
 
 cd "$HOME" || die 1 "can't cd to '$HOME'"
 
+# empty string
+problems=
+
+# if these commands aren't installed, die quickly
+assert_commands_present git
+
 # get temporary yadm
 source_yadm_bootstrap
 
-yadm submodule update --init --recursive
+#
+# From here on, if things break, I probably just want to note it and keep going 
+#
 
+# I prefer using Git over SSH
+yadm remote set-url origin git@github.com:ptolemarch/dotfiles.git \
+|| problems="$(( problems + 1 ))"
 
-# - save GitHub PAT?
-#   - would be nice to do this first, so the PAT is still available, maybe
-#     still in clipboard
+# do the next two steps one right after the other, because both
+# will require the entry of the GitHub PAT. I can just paste it twice.
 
-# - initialize submodules
+# NOTE that it is tempting to just do what I did above, and set the submodule's
+# URL to use SSH. But this would change the repo in a way that we'd be tempted
+# to push to origin. AND WE DON'T WANT TO DO THAT. We need the .yadm-private
+# submodule to come in over HTTPS. We can't fetch over SSH until we have
+# our SSH keys installed, but .yadm-private is where our SSH keys are stored.
 
-# - decrypt .yadm-private
+# update submodules, including .yadm-private
+yadm submodule update --init --recursive \
+|| problems="$(( problems + 1 ))"
+
+# take steps to store GitHub PAT
+cd .yadm-private                    || problems="$(( problems + 1 ))"
+git config credential.helper store  || problems="$(( problems + 1 ))"
+git fetch                           || problems="$(( problems + 1 ))"
+cd ..                               || problems="$(( problems + 1 ))"
+
+# decrypt .yadm-private
+yadm decrypt                        || problems="$(( problems + 1 ))"
+
+# sign off
+if [ -z "$problems" ]; then
+    echo "Everything seems to have worked! (problem count: $problems)."
+    echo "You probably want to log out and back in now."
+
+    exit 0
+else
+    echo "ATTENTION! THERE WERE PROBLEMS! (problem count: $problems)"
+    echo "Sorry. You should probably look into them before logging out."
+
+    exit 1
+fi
