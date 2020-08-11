@@ -28,8 +28,9 @@ fi
 
 _YADM_BOOTSTRAP_URL='bootstrap.yadm.io'
 _DOTFILES_REPO='https://github.com/ptolemarch/dotfiles.git'
-
 _YADM_CONFIG_DIR="$HOME/.config/yadm"
+
+export GPG_TTY=$(tty)
 
 ## =====================================================================
 ##  functions
