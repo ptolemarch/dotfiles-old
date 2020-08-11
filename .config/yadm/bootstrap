@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 # vim: ts=4 sw=4 et ai
 
 # one-line installation of dotfiles:
@@ -7,6 +7,20 @@
 # NOTE I'll need to enter my GitHub Personal Access Token
 # (see https://github.com/settings/tokens) and the symmetric password
 # to decrypt the contents of .yadm-private
+
+# I had *really* wanted to make this portable, but the script needs
+# to run YADM commands, and to do that it needs to source the YADM bootstrap
+# stuff, which requires bashisms.
+# execute script with bash (shebang line is /bin/sh for portability)
+if [ -z "$BASH_VERSION" ]; then
+    command -v bash && exec bash "$0" "$@"
+    echo "sorry, I need bash, but this isn't bash,"
+    echo "and I can't even find it to run it instead"
+    exit 1
+
+    # actually, if the only problem is sourcing the YADM bootstrap,
+    # presumably I could make this dependent on either bash or YADM.
+fi
 
 ## =====================================================================
 ##  configuration
@@ -79,7 +93,7 @@ source_yadm_bootstrap()
     _warn "made temporary YADM bootstrap file: '$yadm_bootstrap_temp'"
 
     curl -L "$_YADM_BOOTSTRAP_URL" > "$yadm_bootstrap_temp"
-    source "$yadm_bootstrap_temp" > /dev/null
+    . "$yadm_bootstrap_temp" > /dev/null
     rm "$yadm_bootstrap_temp"
 
     if is_present yadm; then :; else
@@ -92,7 +106,7 @@ enable_decrypt_under_sudo()
 {
     local tty="$(tty)"
 
-    # is tty readable by us? If not, pinentry prolly won't work.
+    # is tty writable by us? If not, pinentry prolly won't work.
     if [[ -w "$tty" ]]; then :; else
         _warn "It looks like gpg isn't going to work in the normal way," \
               "so let's try to work around that."
