@@ -36,6 +36,9 @@ execute pathogen#infect()
 "syntax enable
 "colorscheme solarized
 
+" make this match default CursorColumn highlight
+hi CursorLine term=reverse cterm=none ctermbg=242 guibg=Grey40
+
 "============================================================================
 "   Other Plugin Options
 "----------------------------------------------------------------------------
