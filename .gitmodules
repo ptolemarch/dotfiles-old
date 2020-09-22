@@ -1,5 +1,5 @@
 [submodule ".yadm-private"]
-	path = .yadm-private
+	path = .dotfiles-private
 	url = https://github.com/ptolemarch/dotfiles-private.git
 	branch = master
 [submodule ".vim/bundle/mojo.vim"]

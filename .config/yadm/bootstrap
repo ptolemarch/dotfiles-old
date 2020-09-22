@@ -6,7 +6,7 @@
 
 # NOTE I'll need to enter my GitHub Personal Access Token
 # (see https://github.com/settings/tokens) and the symmetric password
-# to decrypt the contents of .yadm-private
+# to decrypt the contents of .dotfiles-private
 
 # I had *really* wanted to make this portable, but the script needs
 # to run YADM commands, and to do that it needs to source the YADM bootstrap
@@ -153,18 +153,19 @@ yadm remote set-url origin git@github.com:ptolemarch/dotfiles.git \
 # do the next two steps one right after the other, because both
 # will require the entry of the GitHub PAT. I can just paste it twice.
 
-# NOTE that it is tempting to just do what I did above, and set the submodule's
-# URL to use SSH. But this would change the repo in a way that we'd be tempted
-# to push to origin. AND WE DON'T WANT TO DO THAT. We need the .yadm-private
-# submodule to come in over HTTPS. We can't fetch over SSH until we have
-# our SSH keys installed, but .yadm-private is where our SSH keys are stored.
+# NOTE that it is tempting to just do what I did above, and set the
+# submodule's URL to use SSH. But this would change the repo in a way that
+# we'd be tempted to push to origin. AND WE DON'T WANT TO DO THAT. We need the
+# .dotfiles-private submodule to come in over HTTPS. We can't fetch over SSH
+# until we have our SSH keys installed, but .dotfiles-private is where our SSH
+# keys are stored.
 
-# update submodules, including .yadm-private
+# update submodules, including .dotfiles-private
 yadm submodule update --init --recursive \
 || problems="$(( problems + 1 ))"
 
 # take steps to store GitHub PAT
-cd .yadm-private                    || problems="$(( problems + 1 ))"
+cd .dotfiles-private                || problems="$(( problems + 1 ))"
 git config credential.helper store  || problems="$(( problems + 1 ))"
 git fetch                           || problems="$(( problems + 1 ))"
 cd ..                               || problems="$(( problems + 1 ))"
@@ -173,7 +174,7 @@ cd ..                               || problems="$(( problems + 1 ))"
 yadm submodule update --recursive --remote \
 || problems="$(( problems + 1 ))"
 
-# decrypt .yadm-private
+# decrypt .dotfiles-private
 enable_decrypt_under_sudo
 yadm decrypt                        || problems="$(( problems + 1 ))"
 
