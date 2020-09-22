@@ -1,12 +1,12 @@
-# git ls-files --others --exclude-from=.git/info/exclude
-# Lines that start with '#' are comments.
-# For a project mostly in C, the following would be a good set of
-# exclude patterns (uncomment them if you want to use them):
-# *.[oa]
-# *~
+# This is the excludesfile for the YADM repo *only*
+# global excludesfile is Git's default of ~/.config/git/ignore
 
+# to start with: ignore everything, but not dotfiles
 /*
 !/.*
+
+# ignore YADM's git repo or things might get a bit iffy real quick
+.config/yadm/repo.git/
 
 # my liferaft of configs
 ptolemarch/
@@ -15,6 +15,12 @@ ptolemarch/
 .ssh/
 .gnupg/
 .pgpass
+
+# MacOS
+.Trash/
+.bash_sessions/
+.DS_Store
+.CFUserTextEncoding
 
 # X11
 .xsession-errors
@@ -38,6 +44,8 @@ ptolemarch/
 .bash/history
 .lesshst
 .rlwrap/
+.local/share/fish/fish_history
+.ghc/ghci_history
 
 
 # these both seem to mix configuration with logs, cache, etc.
@@ -55,7 +63,11 @@ ptolemarch/
 .nv/
 # it'd be nice to include .minecraft/options.txt
 .minecraft/
+.local/share/fish/generated_completions/
 
 # JavaScript build stuff
 .yarnrc
 .npm/
+
+# work (Perceptyx)
+.gitlab-token-devserver
