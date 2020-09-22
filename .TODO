@@ -6,4 +6,12 @@
   - hell, then why not rakudobrew?
   - ~/bin
   - encrypted files
-- yadm bootstrap
+
+- Zsh
+  - prompt
+  - history in color?
+
+- nethackrc
+
+- less formatting (for man)
+- termcap to allow italics
