@@ -1,9 +1,9 @@
 [user]
 	name = David Hand
 	email = davidhand@davidhand.com
-# use default of ~/config/git/ignore instead
-#[core]
-#	excludesfile = ~/.gitignore
+[core]
+# global excludes file is default: ~/config/git/ignore
+#  (rather than ~/.gitignore)
 [color]
 	ui = auto
 	branch = auto
