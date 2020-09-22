@@ -169,6 +169,10 @@ git config credential.helper store  || problems="$(( problems + 1 ))"
 git fetch                           || problems="$(( problems + 1 ))"
 cd ..                               || problems="$(( problems + 1 ))"
 
+# pull most recent remote of all submodules
+yadm submodule update --recursive --remote \
+|| problems="$(( problems + 1 ))"
+
 # decrypt .yadm-private
 enable_decrypt_under_sudo
 yadm decrypt                        || problems="$(( problems + 1 ))"
@@ -192,5 +196,5 @@ else
     _warn "ATTENTION! THERE WERE PROBLEMS! (problem count: $problems)" \
           "Sorry. You should probably look into them before logging out."
 
-    exit 1
+    exit $problems
 fi
