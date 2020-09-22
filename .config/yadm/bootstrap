@@ -120,6 +120,13 @@ enable_decrypt_under_sudo()
     fi
 }
 
+is_file_present()
+{
+    local file="$1"
+
+    [[ -a "$HOME/$1" ]]
+}
+
 ## =====================================================================
 ##  main program
 ## ---------------------------------------------------------------------
@@ -165,6 +172,15 @@ cd ..                               || problems="$(( problems + 1 ))"
 # decrypt .yadm-private
 enable_decrypt_under_sudo
 yadm decrypt                        || problems="$(( problems + 1 ))"
+
+# look for problematic files
+if is_command_present '.vimrc'; then
+    _warn "WARNING: file ~/.vimrc is present!" \
+          "  These dotfiles use ~/.vim/vimrc, but Vim will use .vimrc instead" \
+          "  if it is present. You should remove this file or consolidate" \
+          "  it into ~/.vim/vimrc"
+    problems="$(( problems + 1 ))"
+fi
 
 # sign off
 if [ -z "$problems" ]; then
