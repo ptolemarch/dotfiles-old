@@ -24,6 +24,7 @@ ptolemarch/
 
 # vim temporary and state files
 *~
+.sw?
 .*.sw?
 .viminfo
 .viminfo.tmp
