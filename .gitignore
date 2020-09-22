@@ -28,6 +28,19 @@ ptolemarch/
 .Xauthority
 .ICEauthority
 
+# Bash
+.history
+.bash_history
+.bash/history
+
+# Zsh
+.zsh/history
+.zsh/.zcompdump
+
+# Fish
+.local/share/fish/fish_history
+.local/share/fish/generated_completions/
+
 # vim temporary and state files
 *~
 .sw?
@@ -37,18 +50,14 @@ ptolemarch/
 .vim/.netrwhist
 
 # histories
-.history
-.bash_history
 .psql_history
 .units_history
-.bash/history
 .lesshst
 .rlwrap/
-.local/share/fish/fish_history
 .ghc/ghci_history
 
-
-# these both seem to mix configuration with logs, cache, etc.
+# these both seem to mix configuration with logs, cache, etc.,
+#  so don't ignore the whole things
 #.local/
 #.config/
 
@@ -63,7 +72,6 @@ ptolemarch/
 .nv/
 # it'd be nice to include .minecraft/options.txt
 .minecraft/
-.local/share/fish/generated_completions/
 
 # JavaScript build stuff
 .yarnrc
