@@ -56,3 +56,6 @@
 [submodule ".vim/bundle/jq.vim"]
 	path = .vim/bundle/jq.vim
 	url = https://github.com/vito-c/jq.vim.git
+[submodule ".zsh/functional"]
+	path = .zsh/functional
+	url = git@github.com:ptolemarch/zsh-functional.git
