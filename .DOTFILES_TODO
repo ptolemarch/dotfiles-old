@@ -15,3 +15,9 @@
 
 - less formatting (for man)
 - termcap to allow italics
+
+- Vim
+  - vim-plug: https://github.com/junegunn/vim-plug
+  - audit my own random configs
+  ? sensible: https://github.com/tpope/vim-sensible
+  - `runtime! macros/matchit.vim`
