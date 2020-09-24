@@ -180,9 +180,15 @@ ptolemarch_PATH_default=($path)
 path=(
     $HOME/bin 
     $HOME/.yadm-project
-    $HOME/.perl5/plenv/bin
     # also rakubrew
 )
+
+if ! [[ -n $ptolemarch_HOST_perceptyx_jail ]]; then
+    # perceptyx jail uses perlbrew, so don't use plenv
+    path+=(
+        $HOME/.perl5/plenv/bin
+    )
+fi
 
 if [[ -n $ptolemarch_HOST_perceptyx_laptop ]]; then
     # should this test for the presence of homebrew?

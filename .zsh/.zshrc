@@ -1,4 +1,5 @@
 #! zsh
+
 # startup script order:
 #       /etc/zshenv                     (always)
 #       $ZDOTDIR/.zshenv    RCS
@@ -88,3 +89,23 @@ zstyle :completion::complete:git-checkout:argument-rest:headrefs command "echo y
 fpath=(~/.zsh $fpath)
 
 source $ZDOTDIR/set-path.zsh
+
+# === Perl ==================================================================
+ptolemarch_perl5_root="$HOME/.perl5"
+export PLENV_ROOT="$ptolemarch_perl5_root/plenv"
+# documenting this here because not sure where else
+# plenv install 5.28.0 --as=teapot --test -j 8 -Doptimize=-O2 -Dusequadmath
+
+if [[ -d $ptolemarch_perl5_root/minicpan ]]; then
+    ptolemarch_cpanm_cpan_mirror="file://$ptolemarch_perl5_root/minicpan/"
+    export PERL_CPANM_OPT="--mirror $ptolemarch_cpanm_cpan_mirror --mirror-only"
+fi
+export PERL_CPANM_HOME="$ptolemarch_perl5_root/cpanm"
+
+if ! [[ -n $ptolemarch_HOST_perceptyx_jail ]]; then
+    # initialize plenv, but only if we're NOT on perceptyx jail
+    #  (which uses perlbrew)
+    eval "$(plenv init - zsh)"
+fi
+
+# vim: ts=4 sw=4 et ai

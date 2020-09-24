@@ -178,6 +178,12 @@ yadm submodule update --recursive --remote \
 enable_decrypt_under_sudo
 yadm decrypt                        || problems="$(( problems + 1 ))"
 
+# plenv: for some reason, perl-build isn't included by default
+git clone \
+    https://github.com/tokuhirom/Perl-Build.git \
+    "$HOME/.perl5/plenv/plugins/perl-build" \
+|| problems="$(( problems + 1 ))"
+
 # look for problematic files
 if is_command_present '.vimrc'; then
     _warn "WARNING: file ~/.vimrc is present!" \
@@ -199,3 +205,5 @@ else
 
     exit $problems
 fi
+
+_die 99 "~~~~ the script never should have reached this line ~~~~"
