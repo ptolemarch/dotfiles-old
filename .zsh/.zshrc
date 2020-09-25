@@ -22,6 +22,10 @@
 
 source "$ZDOTDIR/identify-machine.zsh"
 
+fpath=(~/.zsh $fpath)
+
+source $ZDOTDIR/set-path.zsh
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -86,10 +90,6 @@ setopt IGNORE_EOF
 
 zstyle :completion::complete:git-checkout:argument-rest:headrefs command "echo yourmom"
 
-fpath=(~/.zsh $fpath)
-
-source $ZDOTDIR/set-path.zsh
-
 # === Perl ==================================================================
 ptolemarch_perl5_root="$HOME/.perl5"
 export PLENV_ROOT="$ptolemarch_perl5_root/plenv"
@@ -107,5 +107,11 @@ if ! [[ -n $ptolemarch_HOST_perceptyx_jail ]]; then
     #  (which uses perlbrew)
     eval "$(plenv init - zsh)"
 fi
+
+# == rlwrap (readline command wrapper) =======================================
+export RLWRAP_HOME="$HOME/.rlwrap"
+
+# === aliases ===============================================================
+source $ZDOTDIR/aliases.zsh
 
 # vim: ts=4 sw=4 et ai

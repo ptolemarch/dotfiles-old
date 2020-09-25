@@ -184,6 +184,11 @@ git clone \
     "$HOME/.perl5/plenv/plugins/perl-build" \
 || problems="$(( problems + 1 ))"
 
+# SOMETHING THAT MIGHT BE NICE AT THIS POINT:
+# - build me a sane perl, right now
+# - install cpanm
+# - install minicpan and download that sucker (possibly in the background)
+
 # look for problematic files
 if is_command_present '.vimrc'; then
     _warn "WARNING: file ~/.vimrc is present!" \

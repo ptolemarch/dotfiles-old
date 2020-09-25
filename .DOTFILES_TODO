@@ -2,22 +2,23 @@
 
 - submodules
   - vim plugins
-  - yadm itself?
   - hell, then why not rakudobrew?
   - ~/bin
-  - encrypted files
 
 - Zsh
   - prompt
   - history in color?
+  - TIMEFMT in color?
+  - key agent (ssh/gpg) where applicable
 
 - nethackrc
 
 - less formatting (for man)
-- termcap to allow italics
+- termcap to allow italics - already done in MacOS
 
 - Vim
   - vim-plug: https://github.com/junegunn/vim-plug
+    - which would mean removing current vim-related submodules
   - audit my own random configs
   ? sensible: https://github.com/tpope/vim-sensible
   - `runtime! macros/matchit.vim`
