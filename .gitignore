@@ -5,6 +5,9 @@
 /*
 !/.*
 
+# but include ~/bin (as a submodule)
+!/bin
+
 # ignore YADM's git repo or things might get a bit iffy real quick
 .config/yadm/repo.git/
 
