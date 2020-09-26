@@ -91,7 +91,7 @@ setopt IGNORE_EOF
 zstyle :completion::complete:git-checkout:argument-rest:headrefs command "echo yourmom"
 
 # === Raku ==================================================================
-export RAKUBREW_HOME=".raku/rakubrew"
+export RAKUBREW_HOME="$HOME/.raku/rakubrew"
 if [[ -x $HOME/.raku/rakubrew/bin/rakubrew ]]; then
     eval "$($HOME/.raku/rakubrew/bin/rakubrew init Zsh)"
 fi
