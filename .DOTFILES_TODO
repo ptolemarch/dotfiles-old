@@ -32,3 +32,6 @@
 ? TaskWarrior
   https://taskwarrior.org/
   https://taskwarrior.org/docs/start.html
+
+- Android SDK
+- rewrite mkpasswd_xkcd in Raku, with great new features
