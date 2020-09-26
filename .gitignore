@@ -53,6 +53,10 @@
 /.perl5/minicpan/
 /.perl5/cpanm/
 
+# JavaScript build stuff
+/.yarnrc
+/.npm/
+
 # vim temporary and state files
 *~
 .sw?
@@ -84,10 +88,11 @@
 /.nv/
 # it'd be nice to include .minecraft/options.txt
 /.minecraft/
+/.wget-hsts
+/.fonts/.uuid
 
-# JavaScript build stuff
-/.yarnrc
-/.npm/
+# proper configs, but not those that should be in version control
+/.cups/lpoptions
 
 # work (Perceptyx)
 /.gitlab-token-devserver
