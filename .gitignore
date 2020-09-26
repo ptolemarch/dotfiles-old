@@ -44,6 +44,10 @@
 /.local/share/fish/fish_history
 /.local/share/fish/generated_completions/
 
+# Perl
+/.perl5/minicpan/
+/.perl5/cpanm/
+
 # vim temporary and state files
 *~
 .sw?
