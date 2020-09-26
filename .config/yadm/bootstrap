@@ -188,6 +188,11 @@ git clone \
 # - build me a sane perl, right now
 # - install cpanm
 # - install minicpan and download that sucker (possibly in the background)
+# - install rakubrew https://rakubrew.org/
+#   - on Mac: https://rakubrew.org/macos/rakubrew
+#   - other Unix: https://rakubrew.org/perl/rakubrew
+#   (and then run `rakubrew mode shim`, apparently)
+#   (first I'd want to set RAKUBREW_HOME to whatever it is in .zsh/.zshrc)
 
 # look for problematic files
 if is_command_present '.vimrc'; then

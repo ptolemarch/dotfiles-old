@@ -90,6 +90,12 @@ setopt IGNORE_EOF
 
 zstyle :completion::complete:git-checkout:argument-rest:headrefs command "echo yourmom"
 
+# === Raku ==================================================================
+export RAKUBREW_HOME=".raku/rakubrew"
+if [[ -x $HOME/.raku/rakubrew/bin/rakubrew ]]; then
+    eval "$($HOME/.raku/rakubrew/bin/rakubrew init Zsh)"
+fi
+
 # === Perl ==================================================================
 ptolemarch_perl5_root="$HOME/.perl5"
 export PLENV_ROOT="$ptolemarch_perl5_root/plenv"

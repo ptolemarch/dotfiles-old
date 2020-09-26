@@ -44,6 +44,11 @@
 /.local/share/fish/fish_history
 /.local/share/fish/generated_completions/
 
+# Raku
+# I don't currently see a way of including Rakubrew as a submodule
+# (though there may be a good way to install it during bootstrap)
+/.raku/rakubrew/
+
 # Perl
 /.perl5/minicpan/
 /.perl5/cpanm/
