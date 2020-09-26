@@ -1,5 +1,9 @@
 # This is my todo list for my dotfiles.
 
+# Incidentally, if I were ever to switch away from YADM, Dotbot looks nice,
+# at a first glance:
+#   https://github.com/anishathalye/dotbot
+
 - submodules
   - vim plugins
   - hell, then why not rakudobrew?
