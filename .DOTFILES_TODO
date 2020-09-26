@@ -26,3 +26,7 @@
   - audit my own random configs
   ? sensible: https://github.com/tpope/vim-sensible
   - `runtime! macros/matchit.vim`
+
+? TaskWarrior
+  https://taskwarrior.org/
+  https://taskwarrior.org/docs/start.html
