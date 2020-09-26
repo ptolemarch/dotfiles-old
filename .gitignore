@@ -9,55 +9,55 @@
 !/bin
 
 # ignore YADM's git repo or things might get a bit iffy real quick
-.config/yadm/repo.git/
+/.config/yadm/repo.git/
 
 # my liferaft of configs
-ptolemarch/
+/ptolemarch/
 
 # these are handled through YADM's encyryption
-.ssh/
-.gnupg/
-.pgpass
+/.ssh/
+/.gnupg/
+/.pgpass
 
 # MacOS
-.Trash/
-.bash_sessions/
-.DS_Store
-.CFUserTextEncoding
+/.Trash/
+/.bash_sessions/
+/.DS_Store
+/.CFUserTextEncoding
 
 # X11
-.xsession-errors
-.xsession-errors.old
-.Xauthority
-.ICEauthority
+/.xsession-errors
+/.xsession-errors.old
+/.Xauthority
+/.ICEauthority
 
 # Bash
-.history
-.bash_history
-.bash/history
+/.history
+/.bash_history
+/.bash/history
 
 # Zsh
-.zsh/history
-.zsh/.zcompdump
+/.zsh/history
+/.zsh/.zcompdump
 
 # Fish
-.local/share/fish/fish_history
-.local/share/fish/generated_completions/
+/.local/share/fish/fish_history
+/.local/share/fish/generated_completions/
 
 # vim temporary and state files
 *~
 .sw?
 .*.sw?
-.viminfo
-.viminfo.tmp
-.vim/.netrwhist
+/.viminfo
+/.viminfo.tmp
+/.vim/.netrwhist
 
 # histories
-.psql_history
-.units_history
-.lesshst
-.rlwrap/
-.ghc/ghci_history
+/.psql_history
+/.units_history
+/.lesshst
+/.rlwrap/
+/.ghc/ghci_history
 
 # these both seem to mix configuration with logs, cache, etc.,
 #  so don't ignore the whole things
@@ -65,20 +65,20 @@ ptolemarch/
 #.config/
 
 # caches and logs and sessions and such
-.compiz/
-.gconf/
-.java/
-.lastpass/
-.oracle_jre_usage/
-.mozilla/
-.cache/
-.nv/
+/.compiz/
+/.gconf/
+/.java/
+/.lastpass/
+/.oracle_jre_usage/
+/.mozilla/
+/.cache/
+/.nv/
 # it'd be nice to include .minecraft/options.txt
-.minecraft/
+/.minecraft/
 
 # JavaScript build stuff
-.yarnrc
-.npm/
+/.yarnrc
+/.npm/
 
 # work (Perceptyx)
-.gitlab-token-devserver
+/.gitlab-token-devserver
