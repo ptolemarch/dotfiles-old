@@ -8,6 +8,11 @@
 # but include ~/bin (as a submodule)
 !/bin
 
+# also include ~/Code/Hesitations (as a submodule)
+!/Code/
+/Code/*
+!/Code/Hesitations
+
 # ignore YADM's git repo or things might get a bit iffy real quick
 /.config/yadm/repo.git/
 

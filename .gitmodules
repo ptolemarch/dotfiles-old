@@ -58,3 +58,6 @@
 [submodule "bin"]
 	path = bin
 	url = https://github.com/ptolemarch/bin.git
+[submodule "Code/Hesitations"]
+	path = Code/Hesitations
+	url = git@github.com:ptolemarch/Hesitations.git
