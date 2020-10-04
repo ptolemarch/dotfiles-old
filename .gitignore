@@ -53,6 +53,8 @@
 # I don't currently see a way of including Rakubrew as a submodule
 # (though there may be a good way to install it during bootstrap)
 /.raku/rakubrew/
+/.raku/precomp/
+/.raku/zef/store/
 
 # Perl
 /.perl5/minicpan/
