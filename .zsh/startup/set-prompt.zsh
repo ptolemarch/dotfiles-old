@@ -27,7 +27,7 @@
 [[ -n $ptolemarch_INCLUDE_set_prompt__ ]] && return 0
 ptolemarch_INCLUDE_set_prompt__=$(date +%s)
 
-source $ZDOTDIR/basic.zsh
-source $ZDOTDIR/identify-machine.zsh
+source $ZDOTDIR/startup/basic.zsh
+source $ZDOTDIR/startup/identify-machine.zsh
 
 

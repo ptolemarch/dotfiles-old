@@ -20,12 +20,17 @@
 # completions configuration questionnaire:
 #       `autoload -Uz compinstall && compinstall`
 
-source "$ZDOTDIR/identify-machine.zsh"
+source $ZDOTDIR/startup/functional/functional.plugin.zsh
+source $ZDOTDIR/startup/basic.zsh
+source $ZDOTDIR/startup/identify-machine.zsh
 
-fpath=(~/.zsh $fpath)
+fpath=(~/.zsh/functions $fpath)
 
-source $ZDOTDIR/set-path.zsh
+source $ZDOTDIR/startup/set-path.zsh
 
+# -- end general initializaiton ----------------------------------------------
+
+# == compinstall did this ====================================================
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -48,11 +53,11 @@ zstyle ':completion:*' substitute 1
 zstyle :compinstall filename '/Users/davidhand/.zshrc'
 
 autoload -Uz compinit && compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+# -- end compinstall ---------------------------------------------------------
+# == zsh-newuser-install =====================================================
 setopt AUTO_CD BEEP EXTENDED_GLOB NOMATCH
 bindkey -v
-# End of lines configured by zsh-newuser-install
+# -- end zsh-newuser-install -------------------------------------------------
 
 # run-help command provides documentation on builtins and such
 unalias run-help && autoload run-help
@@ -118,6 +123,6 @@ fi
 export RLWRAP_HOME="$HOME/.rlwrap"
 
 # === aliases ===============================================================
-source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/startup/aliases.zsh
 
 # vim: ts=4 sw=4 et ai

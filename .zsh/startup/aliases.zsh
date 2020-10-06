@@ -7,7 +7,7 @@
 [[ -n $ptolemarch_INCLUDE_set_aliases__ ]] && return 0
 ptolemarch_INCLUDE_set_aliases__=$(date +%s)
 
-source $ZDOTDIR/identify-machine.zsh
+source $ZDOTDIR/startup/identify-machine.zsh
 
 # === ls ====================================================================
 if [[ -n $ptolemarch_HOST_perceptyx_laptop ]]; then

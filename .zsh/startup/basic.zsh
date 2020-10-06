@@ -7,7 +7,8 @@
 [[ -n $ptolemarch_INCLUDE_basic__ ]] && return 0
 ptolemarch_INCLUDE_basic__=$(date +%s)
 
-source $ZDOTDIR/lists.zsh
+# TODO: replace with startup/functional/function.plugin.zsh
+source $ZDOTDIR/startup/lists.zsh
 
 # echo the name of the current function or script or whatever. Mostly for
 #  warn_ and die_
