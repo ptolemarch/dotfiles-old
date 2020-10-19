@@ -61,3 +61,6 @@
 [submodule "Code/Hesitations"]
 	path = Code/Hesitations
 	url = git@github.com:ptolemarch/Hesitations.git
+[submodule ".zsh/opt/printc-"]
+	path = .zsh/opt/printc-
+	url = https://github.com/philFernandez/printc-.git
