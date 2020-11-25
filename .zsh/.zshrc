@@ -105,7 +105,7 @@ fi
 ptolemarch_perl5_root="$HOME/.perl5"
 export PLENV_ROOT="$ptolemarch_perl5_root/plenv"
 # documenting this here because not sure where else
-# plenv install 5.28.0 --as=teapot --test -j 8 -Doptimize=-O2 -Dusequadmath
+# plenv install 5.32.0 --as=teapot --test -j 8 -Doptimize=-O3 -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib
 
 if [[ -d $ptolemarch_perl5_root/minicpan ]]; then
     ptolemarch_cpanm_cpan_mirror="file://$ptolemarch_perl5_root/minicpan/"
