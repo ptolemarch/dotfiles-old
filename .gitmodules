@@ -64,3 +64,6 @@
 [submodule ".zsh/opt/printc-"]
 	path = .zsh/opt/printc-
 	url = https://github.com/philFernandez/printc-.git
+[submodule ".zsh/opt/zsh-async"]
+	path = .zsh/opt/zsh-async
+	url = https://github.com/mafredri/zsh-async.git

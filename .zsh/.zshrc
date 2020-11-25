@@ -20,11 +20,14 @@
 # completions configuration questionnaire:
 #       `autoload -Uz compinstall && compinstall`
 
+fpath=(~/.zsh/functions $fpath)
+
+# zsh-async https://github.com/mafredri/zsh-async
+autoload -Uz async && async
+
 source $ZDOTDIR/startup/functional/functional.plugin.zsh
 source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh
-
-fpath=(~/.zsh/functions $fpath)
 
 source $ZDOTDIR/startup/set-path.zsh
 
