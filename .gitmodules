@@ -52,9 +52,6 @@
 [submodule ".vim/bundle/jq.vim"]
 	path = .vim/bundle/jq.vim
 	url = https://github.com/vito-c/jq.vim.git
-[submodule ".zsh/functional"]
-	path = .zsh/startup/functional
-	url = git@github.com:ptolemarch/zsh-functional.git
 [submodule "bin"]
 	path = bin
 	url = https://github.com/ptolemarch/bin.git
@@ -67,3 +64,6 @@
 [submodule ".zsh/opt/zsh-async"]
 	path = .zsh/opt/zsh-async
 	url = https://github.com/mafredri/zsh-async.git
+[submodule ".zsh/opt/zsh-functional"]
+	path = .zsh/opt/zsh-functional
+	url = https://github.com/ptolemarch/zsh-functional.git

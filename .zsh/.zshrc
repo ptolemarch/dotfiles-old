@@ -25,7 +25,7 @@ fpath=(~/.zsh/functions $fpath)
 # zsh-async https://github.com/mafredri/zsh-async
 autoload -Uz async && async
 
-source $ZDOTDIR/startup/functional/functional.plugin.zsh
+source $ZDOTDIR/opt/zsh-functional/functional.plugin.zsh
 source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh
 
