@@ -11,7 +11,9 @@
 
 - Zsh
   - prompt
-  - history in color?
+  - history
+    - in color?
+    - shared?
   - TIMEFMT in color?
   - key agent (ssh/gpg) where applicable
   - GITHUB_TOKEN and HOMEBREW_GITHUB_API_TOKEN
