@@ -37,7 +37,7 @@ source $ZDOTDIR/startup/set-path.zsh
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _oldlist _expand _complete _ignored _match _correct _approximate _prefix
+zstyle ':completion:*' completer _oldlist _expand _complete _ignored _match _prefix
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' format 'completing %d'
 zstyle ':completion:*' glob 1
