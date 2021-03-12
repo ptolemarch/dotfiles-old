@@ -61,6 +61,10 @@
 /.perl5/minicpan/
 /.perl5/cpanm/
 
+# Python
+/.python/miniconda3/
+/.python_history
+
 # JavaScript build stuff
 /.yarnrc
 /.npm/
