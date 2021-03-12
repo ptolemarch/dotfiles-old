@@ -30,4 +30,5 @@ ptolemarch_INCLUDE_set_prompt__=$(date +%s)
 source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh
 
-
+# https://vincent.bernat.ch/en/blog/2019-zsh-async-vcs-info
+#autoload -Uz vcs_info
