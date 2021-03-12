@@ -22,6 +22,7 @@
 
 fpath=(~/.zsh/functions $fpath)
 
+autoload -Uz add-zsh-hook  # && add-zsh-hook (not required; dunno why not)
 # zsh-async https://github.com/mafredri/zsh-async
 autoload -Uz async && async
 
