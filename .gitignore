@@ -64,6 +64,7 @@
 # Python
 /.python/miniconda3/
 /.python_history
+/.conda/
 
 # JavaScript build stuff
 /.yarnrc
