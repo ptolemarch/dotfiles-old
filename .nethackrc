@@ -78,7 +78,8 @@ OPTIONS=showscore
 OPTIONS=time
 OPTIONS=mail
 OPTIONS=news
-OPTIONS=hpmon
+# * Line 81: Unknown option 'hpmon'.
+#OPTIONS=hpmon
 
 # Autopickup
 OPTIONS=autopickup, pickup_types:$"?+!=/
@@ -117,7 +118,8 @@ MENUCOLOR=" wand .*cancel"=magenta&inverse
 MENUCOLOR=" !!holding"=magenta&inverse
 MENUCOLOR=" !!cancel"=magenta&inverse
 #raison d'etre
-MENUCOLOR=" Amulet of Yendor named"=magenta&bold&underline
+# * Line 120: Unknown text attribute 'bold&underline'.
+#MENUCOLOR=" Amulet of Yendor named"=magenta&bold&underline
 # shiny things
 MENUCOLOR=" gold piece"=yellow
 MENUCOLOR=" valuable"=brown
@@ -139,7 +141,8 @@ MENUCOLOR=" 9[0-9]%"=red&bold
 MENUCOLOR=" 100%"=black
 ## #enhance manu
 # normal
-MENUCOLOR="^ +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=none
+#  * Line 142: Unknown color 'none'.
+#MENUCOLOR="^ +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=none
 # ready to enhance
 #   Doesn't work; NAO menucolors (questionably) patched to make '^[a-z] - '
 #   not part of the string to be matched. Maybe should counter-patch that.
