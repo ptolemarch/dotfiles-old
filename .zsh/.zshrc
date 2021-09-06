@@ -139,6 +139,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# === Twilio (SMS SAAS: twilio.com) =========================================
+# (the below is the output of `twilio autocomplete:script zsh`)
+# twilio autocomplete setup
+TWILIO_AC_ZSH_SETUP_PATH=/Users/davidhand/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH;
 
 # == rlwrap (readline command wrapper) =======================================
 export RLWRAP_HOME="$HOME/.rlwrap"
