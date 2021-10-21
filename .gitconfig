@@ -26,10 +26,10 @@
 [grep]
 	extendRegexp = true
 	lineNumber = true
+	patternType = perl
+	threads = 4
 [diff]
 [difftool]
 	prompt = false
 [pull]
 	rebase = true
-[merge]
-	ff = false
