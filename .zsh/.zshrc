@@ -150,4 +150,8 @@ export RLWRAP_HOME="$HOME/.rlwrap"
 # === aliases ===============================================================
 source $ZDOTDIR/startup/aliases.zsh
 
+# === iTerm2 ================================================================
+ITERM2_SI_PATH=$ZDOTDIR/startup/iterm2_shell_integration.zsh
+test -f $ITERM2_SI_PATH && source $ITERM2_SI_PATH;
+
 # vim: ts=4 sw=4 et ai
