@@ -1,7 +1,10 @@
 local: ~/.perl5/minicpan
 
+# NYC
+remote: http://mirror.low-orbit.net/pub/cpan/
+
 # Lansing
-remote: http://httpupdate118.cpanel.net/CPAN/
+#remote: http://httpupdate118.cpanel.net/CPAN/
 
 # Wayne State
 #remote: http://ftp.wayne.edu/CPAN/
