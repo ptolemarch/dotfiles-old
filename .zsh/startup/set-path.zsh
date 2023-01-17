@@ -80,7 +80,7 @@ has_path_changed()
 # (no INFOPATH)
 [[ -n $ptolemarch_HOST_perceptyx_laptop ]] \
 && has_path_changed \
-  '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin'
+  '/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin'
 
 # At Perceptyx, using the default Bash installation, PATH is:
 #   - /opt/perl/perls/perl-5.28.1/bin/
@@ -200,6 +200,15 @@ if [[ -n $ptolemarch_HOST_perceptyx_laptop ]]; then
 
         # OSX has an old, broken grep, so use homebrew's instead
         /usr/local/opt/grep/libexec/gnubin
+
+        # mysql@5.7 is keg-only
+        /usr/local/opt/mysql@5.7/bin
+
+        # mysql-client@5.7 is keg-only
+        /usr/local/opt/mysql-client@5.7/bin
+
+        # Docker cask
+        /Users/davidhand/Applications/Docker.app/Contents/Resources/bin
     )
 fi
 
