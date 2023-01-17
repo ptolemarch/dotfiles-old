@@ -99,6 +99,10 @@ setopt IGNORE_EOF
 
 zstyle :completion::complete:git-checkout:argument-rest:headrefs command "echo yourmom"
 
+# === Homebrew ==============================================================
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
+export HOMEBREW_NO_ENV_HINTS=1
+
 # === Raku ==================================================================
 export RAKUBREW_HOME="$HOME/.raku/rakubrew"
 if [[ -x $HOME/.raku/rakubrew/bin/rakubrew ]]; then
@@ -109,6 +113,7 @@ fi
 ptolemarch_perl5_root="$HOME/.perl5"
 export PLENV_ROOT="$ptolemarch_perl5_root/plenv"
 # documenting this here because not sure where else
+# plenv install 5.36.0 --test -j 8 -Doptimize=-O3 -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib
 # plenv install 5.32.0 --as=teapot --test -j 8 -Doptimize=-O3 -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib
 
 if [[ -d $ptolemarch_perl5_root/minicpan ]]; then
@@ -123,21 +128,33 @@ if ! [[ -n $ptolemarch_HOST_perceptyx_jail ]]; then
     eval "$(plenv init - zsh)"
 fi
 
+# === Go ====================================================================
+GOPATH="$HOME/.go"
+
+export GOPATH
+
 # === Python ================================================================
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/davidhand/.python/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/davidhand/.python/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/davidhand/.python/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/davidhand/.python/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$('/Users/davidhand/.python/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/davidhand/.python/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/davidhand/.python/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/davidhand/.python/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
 # <<< conda initialize <<<
+
+ptolemarch_python_venv="$HOME/.python/venv"
+ptolemarch_python_venv_activate="$ptolemarch_python_venv/bin/activate"
+if [ -f "$ptolemarch_python_venv_activate" ]; then
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
+    source "$ptolemarch_python_venv_activate"
+fi
 
 # === Twilio (SMS SAAS: twilio.com) =========================================
 # (the below is the output of `twilio autocomplete:script zsh`)
@@ -153,5 +170,9 @@ source $ZDOTDIR/startup/aliases.zsh
 # === iTerm2 ================================================================
 ITERM2_SI_PATH=$ZDOTDIR/startup/iterm2_shell_integration.zsh
 test -f $ITERM2_SI_PATH && source $ITERM2_SI_PATH;
+
+# === Perceptyx ==
+export GITLAB_TOKEN='oD8EwmsBZrBCmkZcAreM'
+export GITLAB_HOST='https://git.perceptyx.com/'
 
 # vim: ts=4 sw=4 et ai
